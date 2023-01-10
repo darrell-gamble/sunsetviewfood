@@ -3584,3 +3584,18 @@ main .content-area {
     /* height: 500px; */
     /* width: 400px; */
 }
+
+.restaurant > h1, div {
+    border: 0;
+}
+@media only screen and (max-width: 730px) {
+    .img-restaurant {
+        display: none;
+        padding: 0;
+    }
+
+}
+
+#MainHeaderText {
+    white-space: nowrap !important;
+}
