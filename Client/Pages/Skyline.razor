@@ -3,155 +3,8 @@
 @inject IJSRuntime JS
 @implements IDisposable
 
-	<!-- header -->
-	<header>
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-xl-2">
-					<div class="header-style">
-						<a href="/">
-							<svg xmlns="http://www.w3.org/2000/svg" width="210" height="38" viewBox="0 0 163 38">
-  <g id="Logo" style="width:600px;" transform="translate(-340 -51)">
-
-    <text transform="translate(320 87)" fill="#363636" font-size="20" font-family="Poppins" font-weight="700"><tspan x="0" y="0">SUNSET</tspan><tspan y="0" fill="#f29f05">HOMES</tspan></text>
-  </g>
-</svg>
-
-						</a>
-						<div class="extras bag">
-	           				@* <a href="javascript:void(0)" class="menu-btn">
-		                       <i class="fa-solid fa-bag-shopping"></i>
-		                   </a> *@
-		                   <div class="bar-menu">
-		                   	<i class="fa-solid fa-bars"></i>
-		                   </div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-7">
-					<nav class="navbar">
-				      <ul class="navbar-links">
-				        <li class="navbar-dropdown active">
-				          <a href="/">Home</a>
-				        </li>
-				        <li class="navbar-dropdown">
-				          <a href="#locations">Locations</a>
-				        </li>
-				        <li class="navbar-dropdown">
-				          <a href="#">Gallery</a>
-				          <div class="dropdown">
-				            <a href="skyline#footer">Services</a>
-				            <a href="skyline#locations">FAQ</a>
-				            <a href="#skyline#6">Pricing Table</a>
-				            <a href="404.html">404</a>
-				          </div>
-				        </li>
-				        <li class="navbar-dropdown">
-				          <a href="#contact-us">Contacts</a>
-				        </li>
-				      </ul>
-				    </nav>
-				</div>
-				<div class="col-lg-3">
-					<div class="extras bag">
-           <a href="javascript:void(0)" id="desktop-menu" class="menu-btn">
-
-							<i class="fa-solid fa-bag-shopping"></i></a>
-						 <a href="#" class="button button-2">Book Now</a>
-					</div>
-				</div>
-			 @* <div class="menu-wrap">
-               <div class="menu-inner ps ps--active-x ps--active-y">
-                 <span class="menu-cls-btn"><i class="cls-leftright"></i><i class="cls-rightleft"></i></span>
-                 <div class="checkout-order">
-						<div class="title-checkout">
-							<h2>My Orders</h2>
-						</div>
-						<div class="banner-wilmington">
-							<img alt="logo" src="https://via.placeholder.com/50x50">
-							<h6>Kennington Lane Cafe</h6>
-						</div>
-						<ul>
-							<li class="price-list">
-							<i class="closeButton fa-solid fa-xmark"></i>
-							<div class="counter-container">
-								<div class="counter-food">
-									<img alt="food" src="https://via.placeholder.com/100x67">
-									<h4>Pasta, kiwi and sauce chilli</h4>
-								</div>
-								<h3>$39</h3>
-							</div>
-							<div class="price">
-									<div>
-					              		<h2>$39</h2>
-					              		<span>Sum</span>
-					              	</div>
-					              		<div>
-						             	 	<div class="qty-input">
-												<button class="qty-count qty-count--minus" data-action="minus" type="button">-</button>
-												<input class="product-qty" type="number" name="product-qty" min="0" value="1">
-												<button class="qty-count qty-count--add" data-action="add" type="button">+</button>
-											</div>
-											<span>Quantity</span>
-										</div>
-										</div>
-							</li>
-							<li class="price-list">
-							<i class="closeButton fa-solid fa-xmark"></i>
-							<div class="counter-container">
-								<div class="counter-food">
-									<img alt="food" src="https://via.placeholder.com/100x67">
-									<h4>Rice with shrimps and kiwi</h4>
-								</div>
-								<h3>$49</h3>
-							</div>
-							<div class="price">
-									<div>
-					              		<h2>$49</h2>
-					              		<span>Sum</span>
-					              	</div>
-					              		<div>
-						             	 	<div class="qty-input">
-												<button class="qty-count qty-count--minus" data-action="minus" type="button">-</button>
-												<input class="product-qty" type="number" name="product-qty" min="0" value="1">
-												<button class="qty-count qty-count--add" data-action="add" type="button">+</button>
-											</div>
-											<span>Quantity</span>
-										</div>
-										</div>
-							</li>
-						</ul>
-						<div class="totel-price">
-							<span>Total order:</span>
-							<h5>$137</h5>
-						</div>
-						<div class="totel-price">
-							<span>To pay:</span>
-							<h2>$137</h2>
-						</div>
-						<button class="button-price">Checkout</button>
-
-					</div>
-            	 </div>
-         	 </div> *@
-         	 <div class="mobile-nav hmburger-menu" id="mobile-nav" style="display:block;">
-
-
-            <div class="res-log">
-            	<a href="/">
-              		<svg xmlns="http://www.w3.org/2000/svg" width="163" height="38" viewBox="0 0 163 38">
-					<text id="SunsetHomes" transform="translate(320 77)" fill="#363636" font-size="20" font-family="Poppins" font-weight="700"><tspan x="0" y="0">SUNSET</tspan><tspan y="0" fill="#f29f05">HOMES</tspan></text>
-
-					</svg>
-            	</a>
-          	</div>
-          <a href="JavaScript:void(0)" id="res-cross"></a>
-      </div>
-		</div>
-	   </div>
-  </header>
-  <!-- hero-section -->
-	<section class="hero-section gap" style="background-image: url(assets/img/background-1.png);">
+<div @onscroll="OnScroll"><!-- hero-section -->
+	<section class="hero-section gap" style="background-image: url(assets/img/background-1.png);" @onscroll="OnScroll">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6" data-aos="fade-up"  data-aos-delay="200" data-aos-duration="300">
@@ -159,18 +12,19 @@
 						<h1>Affordable, <span id="MainHeaderText" style="display: flex">Comfy Rooms</span></h1>
 						<p>From Westlake, Nairobi Kenya to Stone Town Zanzibar, Tanzania check out our affordable offerings.</p>
 						<div class="nice-select-one">
+							@* <div class="m-2 p-2">Scroll events: @counter</div> *@
 							<select class="nice-select Advice">
 							  <option>Choose a location</option>
 							  <option>Nairobi Kilimani</option>
 							  <option>Nairobi Studio House Kilimani</option>							  
 							  <option>Stone Town Zanzibar</option>
-						</select>
-						<a href="#" class="button button-2">Book Now</a>
+							</select>	
+						<a href="#sunset" class="button button-2">Book Now</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-6">
-					<div class="img-restaurant">
+					<div class="img-restaurant" data-aos="flip-up"  data-aos-delay="300" data-aos-duration="400">
 						<img alt="man" src="assets/img/octagon/skyline1.jpg">
 						@* <div class="wilmington">
 							<img alt="img" src="https://via.placeholder.com/90x90">
@@ -230,71 +84,61 @@
 			</div>
 		</div>
 	</section>
-	<!-- footer -->
-	<footer class="gap no-bottom" style="background-color: #363636;">
+		<section class="works-section gap no-top" id="Sunset">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-5 col-md-6 col-sm-12">
-					<div class="footer-description">
-						<a href="/">
-							<svg xmlns="http://www.w3.org/2000/svg" width="163" height="38" viewBox="0 0 163 38"></svg>
-						</a>
-						<h2>The Best Value For Each Location </h2>
-						<p>As a proud Kenyan, hospitality is my passion. My price points are competitive. If you have any questions see the contact us section for more information.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-12">
-					<div class="menu">
-						<h4>Menu</h4>
-						<ul class="footer-menu">
-							<li><a href="/">home<i class="fa-solid fa-arrow-right"></i></a></li>
-							<li><a href="#about-us">Locations<i class="fa-solid fa-arrow-right"></i></a></li>
-							<li><a href="#restaurants">Image Gallery<i class="fa-solid fa-arrow-right"></i></a></li>
-							<li><a href="#contact-us">Contacts<i class="fa-solid fa-arrow-right"></i></a></li>
-						</ul>
+			<div class="fading" data-aos="fade-up"  data-aos-delay="200" data-aos-duration="300">
+				<h2>Sunset</h2>
+				<p>Let us lighten your load by providing transport from the airport, locale information<br> and many other such services.</p>
+			</div>
+			<div class="row align-items-center">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="work-card">
+						<img alt="img" src="assets/img/octagon/skyline3.jpg">
+						<h4><span>01</span>  Nairobi, Kilimani</h4>
+						<p>For that traveler that needs the bear minimum at the most affordable price-point.</p>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="menu contacts">
-						<h4>Contacts</h4>
-						<div class="footer-location">
-							<i class="fa-solid fa-location-dot"></i>
-							<p>Sunset Homes Hurumzi Street Stone Town, Zanzibar</p>
-						</div>
-						<a href="mailto:mercytuem22@gmail.com"><i class="fa-solid fa-envelope"></i>Contact Us</a>
-						<a href="callto:+254742668465"><i class="fa-solid fa-phone"></i>+255 742 668465</a>
+					<div class="work-card">
+						<img alt="img" src="assets/img/octagon/skyline2.jpg">
+						<h4><span>02</span>  Nairobi, Westlands</h4>
+						<p>An elegant location with a variety of rooms and excellant amenities:  a chef, a rooftop pool, a lounge, a gym...</p>
 					</div>
-					<ul class="social-media">
-							<li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-							<li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-							<li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-						</ul>
 				</div>
-			</div>
-			<div id="footer" class="footer-two gap no-bottom">
-				<p>Copyright © 2023 Sunset Homes Properties. All rights reserved.</p>
-				<div class="privacy">
-					<a href="#">Privacy Policy</a>
-					<a href="#">Terms & Services</a>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="work-card">
+						<img alt="img" src="assets/img/Sunset1.jpeg">
+						<h4><span>03</span>  Stone Town, Zanzibar</h4>
+						<p>A rooftop view of Stone Town with along with a lower balcony containing a private theater with a 10 foot by six foot screen to catch over a hundred cable channel or your own amazon firestick offerings.</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</footer>
-    @code {
-  ElementReference scrollElement;
+	</section>
 
-  DotNetObjectReference<Skyline> selfReference;
+</div>	
+@code {
+    ElementReference scrollElement;
 
-  protected override async Task OnAfterRenderAsync(bool firstRender)
-  {
-    if (firstRender)
+    DotNetObjectReference<Skyline> selfReference;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        selfReference = DotNetObjectReference.Create(this);
-        var minInterval = 500; // Only notify every 500 ms
-        await JS.InvokeVoidAsync("onDivScroll",
-            scrollElement, minInterval);
+        if (firstRender)
+        {
+            selfReference = DotNetObjectReference.Create(this);
+            var minInterval = 500; // Only notify every 500 ms
+            await JS.InvokeVoidAsync("onDivScroll",
+                scrollElement, minInterval);
+        }
     }
-  }
 
-  public void Dispose() => selfReference?.Dispose();
+	    private int counter;
+
+    private void OnScroll()
+    {
+        counter++;
+    }
+
+    public void Dispose() => selfReference?.Dispose();
 }
