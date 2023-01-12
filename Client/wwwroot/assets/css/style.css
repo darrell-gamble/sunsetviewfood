@@ -258,7 +258,7 @@ header {
     width: 100%;
 }
 .nice-select-one {
-    margin-top: 40px;
+    margin: 40px 0px;
     display: flex;
     align-items: center;
 }
@@ -3599,4 +3599,8 @@ main .content-area {
 
 #MainHeaderText {
     white-space: nowrap !important;
+}
+
+.comfy-rooms-style {
+    display: flex; justify-content: space-between; margin-bottom:  1em;
 }
