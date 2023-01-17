@@ -2,6 +2,7 @@
 @inherits UjuziTek.Pages.FragmentNavigationBase
 @inject IJSRuntime JS
 @implements IDisposable
+@using Syncfusion.Blazor.Schedule
 
 <div @onscroll="OnScroll"><!-- hero-section -->
 	<section class="hero-section gap" style="background-image: url(assets/img/background-1.png);" @onscroll="OnScroll">
@@ -61,64 +62,47 @@
 				<p>Let us lighten your load by providing transport from the airport, locale information<br> and many other such services.</p>
 			</div>
 			<div class="row align-items-center">
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="work-card">
-						<img alt="img" src="assets/img/octagon/skyline3.jpg">
-						<h4><span>01</span>  Nairobi, Kilimani</h4>
-						<p>For that traveler that needs the bear minimum at the most affordable price-point.</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="work-card">
-						<img alt="img" src="assets/img/octagon/skyline2.jpg">
-						<h4><span>02</span>  Nairobi, Westlands</h4>
-						<p>An elegant location with a variety of rooms and excellant amenities:  a chef, a rooftop pool, a lounge, a gym...</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="work-card">
-						<img alt="img" src="assets/img/Sunset1.jpeg">
-						<h4><span>03</span>  Stone Town, Zanzibar</h4>
-						<p>A rooftop view of Stone Town with along with a lower balcony containing a private theater with a 10 foot by six foot screen to catch over a hundred cable channel or your own amazon firestick offerings.</p>
-					</div>
-				</div>
+			<SfSchedule TValue="AppointmentData" Height="650px" @bind-SelectedDate="@CurrentDate">
+				<ScheduleEventSettings DataSource="@DataSource"></ScheduleEventSettings>
+				<ScheduleViews>
+					<ScheduleView Option="View.Day"></ScheduleView>
+					<ScheduleView Option="View.Week"></ScheduleView>
+					<ScheduleView Option="View.WorkWeek"></ScheduleView>
+					<ScheduleView Option="View.Month"></ScheduleView>
+					<ScheduleView Option="View.Agenda"></ScheduleView>
+				</ScheduleViews>
+			</SfSchedule>
 			</div>
 		</div>
 	</section>
-		<section class="works-section gap no-top" id="Sunset">
-		<div class="container">
-			<div class="fading" data-aos="fade-up"  data-aos-delay="200" data-aos-duration="300">
-				<h2>Sunset</h2>
-				<p>Let us lighten your load by providing transport from the airport, locale information<br> and many other such services.</p>
-			</div>
-			<div class="row align-items-center">
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="work-card">
-						<img alt="img" src="assets/img/octagon/skyline3.jpg">
-						<h4><span>01</span>  Nairobi, Kilimani</h4>
-						<p>For that traveler that needs the bear minimum at the most affordable price-point.</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="work-card">
-						<img alt="img" src="assets/img/octagon/skyline2.jpg">
-						<h4><span>02</span>  Nairobi, Westlands</h4>
-						<p>An elegant location with a variety of rooms and excellant amenities:  a chef, a rooftop pool, a lounge, a gym...</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="work-card">
-						<img alt="img" src="assets/img/Sunset1.jpeg">
-						<h4><span>03</span>  Stone Town, Zanzibar</h4>
-						<p>A rooftop view of Stone Town with along with a lower balcony containing a private theater with a 10 foot by six foot screen to catch over a hundred cable channel or your own amazon firestick offerings.</p>
-					</div>
-				</div>
-			</div>
-		</div>
+	<section class="works-section gap no-top" id="Sunset">
+	<div class="control-section">
+	</div>
 	</section>
 
 </div>	
 @code {
+
+    DateTime CurrentDate = new DateTime(2020, 2, 14);
+    List<AppointmentData> DataSource = new List<AppointmentData>
+    {
+        new AppointmentData { Id = 1, Subject = "Paris", StartTime = new DateTime(2020, 2, 13, 10, 0, 0) , EndTime = new DateTime(2020, 2, 13, 12, 0, 0) },
+        new AppointmentData { Id = 2, Subject = "Germany", StartTime = new DateTime(2020, 2, 15, 10, 0, 0) , EndTime = new DateTime(2020, 2, 15, 12, 0, 0) }
+    };
+    public class AppointmentData
+    {
+        public int Id { get; set; }
+        public string Subject { get; set; }
+        public string Location { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public string Description { get; set; }
+        public bool IsAllDay { get; set; }
+        public string RecurrenceRule { get; set; }
+        public string RecurrenceException { get; set; }
+        public Nullable<int> RecurrenceID { get; set; }
+    }
+
     ElementReference scrollElement;
 
     DotNetObjectReference<Skyline> selfReference;
@@ -140,6 +124,5 @@
     {
         counter++;
     }
-
-    public void Dispose() => selfReference?.Dispose();
+	
 }

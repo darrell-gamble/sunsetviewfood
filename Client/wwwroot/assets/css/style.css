@@ -11,9 +11,8 @@
         max-width: 1400px;
         
 }     */
-
 img, svg .img-restaurant  {
-    width: 80%;
+    width: 100%;
     height: 60vh;
     -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
@@ -309,6 +308,8 @@ header {
     right: 66em;
     top: 30em;
     width: 35%;
+    /* position: -webkit-sticky;
+    position: sticky; */
 }
 .wilmington.location-restaurant p{
     line-height: 5px;

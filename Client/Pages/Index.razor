@@ -1,10 +1,14 @@
 ﻿@page "/"
 @inherits UjuziTek.Pages.FragmentNavigationBase
+@inject IJSRuntime JS
+@implements IDisposable
+@using Syncfusion.Blazor.Schedule
+
 
 	<!-- header -->
 
-  <!-- hero-section -->
-	<section class="hero-section gap" style="background-image: url(assets/img/background-1.png);">
+<div @onscroll="OnScroll"><!-- hero-section -->
+	<section class="hero-section gap" style="background-image: url(assets/img/background-1.png);" @onscroll="OnScroll">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6" data-aos="fade-up"  data-aos-delay="200" data-aos-duration="300">
@@ -25,7 +29,7 @@
 					</div>
 				</div>
 				<div class="col-lg-6">
-					<div class="img-restaurant">
+					<div class="img-restaurant" data-aos="flip-up"  data-aos-delay="300" data-aos-duration="400">
 						<img alt="man" src="assets/img/octagon/skyline1.jpg">
 						@* <div class="wilmington">
 							<img alt="img" src="https://via.placeholder.com/90x90">
@@ -61,77 +65,67 @@
 				<p>Let us lighten your load by providing transport from the airport, locale information<br> and many other such services.</p>
 			</div>
 			<div class="row align-items-center">
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="work-card">
-						<img alt="img" src="assets/img/octagon/skyline3.jpg">
-						<h4><span>01</span>  Nairobi, Kilimani</h4>
-						<p>For that traveler that needs the bear minimum at the most affordable price-point.</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="work-card">
-						<img alt="img" src="assets/img/octagon/skyline2.jpg">
-						<h4><span>02</span>  Nairobi, Westlands</h4>
-						<p>An elegant location with a variety of rooms and excellant amenities:  a chef, a rooftop pool, a lounge, a gym...</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="work-card">
-						<img alt="img" src="assets/img/Sunset1.jpeg">
-						<h4><span>03</span>  Stone Town, Zanzibar</h4>
-						<p>A rooftop view of Stone Town with along with a lower balcony containing a private theater with a 10 foot by six foot screen to catch over a hundred cable channel or your own amazon firestick offerings.</p>
-					</div>
-				</div>
+			<SfSchedule TValue="AppointmentData" Height="650px" @bind-SelectedDate="@CurrentDate">
+				<ScheduleEventSettings DataSource="@DataSource"></ScheduleEventSettings>
+				<ScheduleViews>
+					<ScheduleView Option="View.Day"></ScheduleView>
+					<ScheduleView Option="View.Week"></ScheduleView>
+					<ScheduleView Option="View.WorkWeek"></ScheduleView>
+					<ScheduleView Option="View.Month"></ScheduleView>
+					<ScheduleView Option="View.Agenda"></ScheduleView>
+				</ScheduleViews>
+			</SfSchedule>
 			</div>
 		</div>
 	</section>
-	<!-- footer -->
-	<footer class="gap no-bottom" style="background-color: #363636;">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-5 col-md-6 col-sm-12">
-					<div class="footer-description">
-						<a href="/">
-							<svg xmlns="http://www.w3.org/2000/svg" width="163" height="38" viewBox="0 0 163 38"></svg>
-						</a>
-						<h2>The Best Value For Each Location </h2>
-						<p>As a proud Kenyan, hospitality is my passion. My price points are competitive. If you have any questions see the contact us section for more information.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-12">
-					<div class="menu">
-						<h4>Menu</h4>
-						<ul class="footer-menu">
-							<li><a href="/">home<i class="fa-solid fa-arrow-right"></i></a></li>
-							<li><a href="#about-us">Locations<i class="fa-solid fa-arrow-right"></i></a></li>
-							<li><a href="#restaurants">Image Gallery<i class="fa-solid fa-arrow-right"></i></a></li>
-							<li><a href="#contact-us">Contacts<i class="fa-solid fa-arrow-right"></i></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="menu contacts">
-						<h4>Contacts</h4>
-						<div class="footer-location">
-							<i class="fa-solid fa-location-dot"></i>
-							<p>Sunset Homes Hurumzi Street Stone Town, Zanzibar</p>
-						</div>
-						<a href="mailto:mercytuem22@gmail.com"><i class="fa-solid fa-envelope"></i>Contact Us</a>
-						<a href="callto:+254742668465"><i class="fa-solid fa-phone"></i>+255 742 668465</a>
-					</div>
-					<ul class="social-media">
-							<li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-							<li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-							<li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-						</ul>
-				</div>
-			</div>
-			<div class="footer-two gap no-bottom">
-				<p>Copyright © 2023 Sunset Homes Properties. All rights reserved.</p>
-				<div class="privacy">
-					<a href="#">Privacy Policy</a>
-					<a href="#">Terms & Services</a>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<section class="works-section gap no-top" id="Sunset">
+	<div class="control-section">
+	</div>
+	</section>
+
+</div>	
+	@code {
+
+    DateTime CurrentDate = new DateTime(2020, 2, 14);
+    List<AppointmentData> DataSource = new List<AppointmentData>
+    {
+        new AppointmentData { Id = 1, Subject = "Paris", StartTime = new DateTime(2020, 2, 13, 10, 0, 0) , EndTime = new DateTime(2020, 2, 13, 12, 0, 0) },
+        new AppointmentData { Id = 2, Subject = "Germany", StartTime = new DateTime(2020, 2, 15, 10, 0, 0) , EndTime = new DateTime(2020, 2, 15, 12, 0, 0) }
+    };
+    public class AppointmentData
+    {
+        public int Id { get; set; }
+        public string Subject { get; set; }
+        public string Location { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public string Description { get; set; }
+        public bool IsAllDay { get; set; }
+        public string RecurrenceRule { get; set; }
+        public string RecurrenceException { get; set; }
+        public Nullable<int> RecurrenceID { get; set; }
+    }
+
+    ElementReference scrollElement;
+
+    DotNetObjectReference<Index> selfReference;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            selfReference = DotNetObjectReference.Create(this);
+            var minInterval = 500; // Only notify every 500 ms
+            await JS.InvokeVoidAsync("onDivScroll",
+                scrollElement, minInterval);
+        }
+    }
+
+	    private int counter;
+
+    private void OnScroll()
+    {
+        counter++;
+    }
+	
+}
