@@ -257,9 +257,11 @@ header {
     width: 100%;
 }
 .nice-select-one {
-    margin: 40px 0px;
+    margin: 50px 0px;
     display: flex;
     align-items: center;
+    position: relative; 
+    right: 16px;
 }
 
 .hero-section{
@@ -305,11 +307,11 @@ header {
 }
 .wilmington.location-restaurant {
     top: 35%;
-    right: 66em;
+    right: 90%;
     top: 30em;
     width: 35%;
-    /* position: -webkit-sticky;
-    position: sticky; */
+    position: -webkit-sticky;
+    position: sticky;
 }
 .wilmington.location-restaurant p{
     line-height: 5px;
@@ -3603,5 +3605,52 @@ main .content-area {
 }
 
 .comfy-rooms-style {
-    display: flex; justify-content: space-between; margin-bottom:  1em;
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom:  1em;
+    max-width:  370px;
+}
+
+#comfy {
+    box-sizing: border-box;
+    margin:  4px;
+    white-space: nowrap;
+}
+
+/* Carousel styles */
+.default-carousel-section .carousel-sample {
+    margin: 0 auto 2em;
+    max-width: 500px;
+    height: 300px;
+}
+.default-carousel .e-carousel-items .e-carousel-item .img-container {
+    height: 100%;
+}
+.default-carousel .e-carousel-items .e-carousel-item .img-caption {
+    bottom: 5em;
+    color: #fff;
+    font-size: 12pt;
+    height: 2em;
+    position: relative;
+    padding: 0.3em 1em;
+    text-align: center;
+    width: 100%;
+}
+
+.e-carousel .e-carousel-indicators .e-indicator-bar.e-active .e-indicator div {
+    background-color: rgb(242, 159, 5) !important;
+    border-color: rgb(242, 159, 5) !important;
+}
+
+img {
+    min-height: 200px;
+    max-height: 700px;
+    min-width:  600px;
+}
+
+/* debugging hexagon styles */
+.menu-layer #app #hexGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    grid-gap:  6px;
 }
