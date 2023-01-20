@@ -235,6 +235,7 @@ header {
     height: 55px;
     width: 60%;
     font-size: 18px;
+    width: 100%;
 }
 .restaurant .nice-select:after {
     top: 46%;
@@ -246,6 +247,7 @@ header {
     display: flex;
     align-items: center;
     margin-right: 20px;
+    margin-bottom: rgb(242, 159, 5) !important;
 }
 .restaurant .nice-select .option:hover,
 .restaurant .nice-select .option.focus,
@@ -262,6 +264,7 @@ header {
     align-items: center;
     position: relative; 
     right: 16px;
+    width: 400px;
 }
 
 .hero-section{
@@ -3654,3 +3657,13 @@ img {
     grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
     grid-gap:  6px;
 }
+
+/* combo-box styles */
+.e-active {
+    color: rgb(242, 159, 5) !important;
+    font-size: 13px !important;
+}
+
+/* .Advice, .nice-select {
+    border-bottom: rgb(242, 159, 5) !important;
+} */

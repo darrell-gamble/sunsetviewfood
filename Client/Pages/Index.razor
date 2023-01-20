@@ -4,13 +4,14 @@
 @implements IDisposable
 @using Syncfusion.Blazor.Schedule
 @using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.DropDowns
 @inject Microsoft.AspNetCore.Components.NavigationManager UriHelper
 
 
 	<!-- header -->
 
-<div @onscroll="OnScroll"><!-- hero-section -->
-	<section class="hero-section gap" style="background-image: url(assets/img/background-1.png);" @onscroll="OnScroll">
+<div><!-- hero-section -->
+	<section  @onscroll="OnScroll" class="hero-section gap" style="background-image: url(assets/img/background-1.png);">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6" data-aos="fade-up"  data-aos-delay="200" data-aos-duration="300">
@@ -20,13 +21,25 @@
 						<p>From Westlake, Nairobi Kenya to Stone Town Zanzibar.  Check out our affordable offerings.</p>
 						<div class="nice-select-one">
 							@* <div class="m-2 p-2">Scroll events: @counter</div> *@
-							<select class="nice-select Advice">
-							  <option>Choose a location</option>
-							  <option>Nairobi Kilimani</option>
-							  <option>Nairobi Studio House Kilimani</option>							  
-							  <option>Stone Town Zanzibar</option>
-							</select>	
+							<SfComboBox 
+                                TValue="string" 
+                                TItem="Location" 
+                                PopupHeight="230px" 
+                                Placeholder="Nairobi Kilimani" 
+                                @bind-Value="@ComboBoxValue" 
+                                DataSource="@Locations" 
+                                class="nice-select Advice"
+                                ValueChange="OnChange">
+                                <ComboBoxFieldSettings 
+                                    Value="ID" 
+                                    Text="Text" />
+
+							</SfComboBox>	
 						<a href="#sunset" class="button button-2">Book Now</a>
+                        @* <div>@ChangeValue</div> *@
+                        @* <div 
+                            class="property-value">Selected Value : <b>@ComboBoxValue</b>
+                        </div> *@
 						</div>
 					</div>
 				</div>
@@ -66,6 +79,11 @@
 			</div>
 		</div>
 	</section>
+	<section class="works-section gap no-top" id="skyline">
+		<div class="container">
+            <Skyline></Skyline>
+        </div>
+    </section>    
 	<section class="carousel-section gap no-top" id="carousel">
 		<div class="container">
 <div class="control-section default-carousel-section">
@@ -155,6 +173,25 @@
     private void OnScroll()
     {
         counter++;
+    }
+
+    @* ComboBox ctrl *@
+    public class Location
+    {
+        public string ID { get; set; }
+        public string Text { get; set; }
+    }
+    private List<Location> Locations = new List<Location>()
+{
+        new Location(){ ID= "skyline", Text= "Nairobi Westlands" },
+        new Location(){ ID= "sunset", Text= "Stone Town, Zanibar" },
+        new Location(){ ID= "kilimani", Text= "Nairobi Kilimani" }
+     };
+    public string ComboBoxValue = "sunset";
+    public string ChangeValue { get; set; } = "";
+    public void OnChange(Syncfusion.Blazor.DropDowns.ChangeEventArgs<string, Location> args)
+    {
+        this.ChangeValue = args.ItemData?.Text;
     }
 	
 }
