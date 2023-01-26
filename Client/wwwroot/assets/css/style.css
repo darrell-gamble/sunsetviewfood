@@ -397,7 +397,7 @@ header {
 .work-card img  {
     -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);  
-    max-height: 300px;      
+    max-height: 300px;  
 }
 
 
@@ -3612,6 +3612,7 @@ main .content-area {
     justify-content: space-between; 
     margin-bottom:  1em;
     max-width:  370px;
+    white-space: nowrap;
 }
 
 #comfy {
@@ -3648,7 +3649,7 @@ main .content-area {
 img {
     min-height: 200px;
     max-height: 700px;
-    min-width:  600px;
+    /* min-width:  600px; */
 }
 
 /* debugging hexagon styles */

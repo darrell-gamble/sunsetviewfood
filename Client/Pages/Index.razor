@@ -1,58 +1,46 @@
 ﻿@page "/"
 @inherits UjuziTek.Pages.FragmentNavigationBase
-@inject IJSRuntime JS
-@implements IDisposable
-@using Syncfusion.Blazor.Schedule
-@using Syncfusion.Blazor.Navigations
-@using Syncfusion.Blazor.DropDowns
-@inject Microsoft.AspNetCore.Components.NavigationManager UriHelper
-
 
 	<!-- header -->
 
-<div><!-- hero-section -->
-	<section  @onscroll="OnScroll" class="hero-section gap" style="background-image: url(assets/img/background-1.png);">
+  <!-- hero-section -->
+	<section class="hero-section gap" style="background-image: url(assets/img/background-1.png);">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6" data-aos="fade-up"  data-aos-delay="200" data-aos-duration="300">
 					<div class="restaurant">
 						<h1>Affordable,</h1>
-						<h1><span id="comfy">Comfy Rooms</span></h1> 
-						<p>From Westlake, Nairobi Kenya to Stone Town Zanzibar.  Check out our affordable offerings.</p>
+						<h1 class="comfy-rooms-style"><span>Comfy </span><span>Rooms</span></h1> 
+						<p>From Westlake, Nairobi Kenya to Stone Town Zanzibar, Tanzania check out our affordable offerings.</p>
 						<div class="nice-select-one">
 							@* <div class="m-2 p-2">Scroll events: @counter</div> *@
-							<SfComboBox 
-                                TValue="string" 
-                                TItem="Location" 
-                                PopupHeight="230px" 
-                                Placeholder="Nairobi Kilimani" 
-                                @bind-Value="@ComboBoxValue" 
-                                DataSource="@Locations" 
-                                class="nice-select Advice"
-                                ValueChange="OnChange">
-                                <ComboBoxFieldSettings 
-                                    Value="ID" 
-                                    Text="Text" />
-
-							</SfComboBox>	
+							<select class="nice-select Advice">
+							  <option>Choose a location</option>
+							  <option>Nairobi Kilimani</option>
+							  <option>Nairobi Studio House Kilimani</option>							  
+							  <option>Stone Town Zanzibar</option>
+							</select>	
 						<a href="#sunset" class="button button-2">Book Now</a>
-                        @* <div>@ChangeValue</div> *@
-                        @* <div 
-                            class="property-value">Selected Value : <b>@ComboBoxValue</b>
-                        </div> *@
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-6">
-					<div class="img-restaurant" data-aos="flip-up"  data-aos-delay="300" data-aos-duration="400">
+					<div class="img-restaurant">
 						<img alt="man" src="assets/img/octagon/skyline1.jpg">
-						<div id="unitsBtn" class="wilmington location-restaurant">
-							<i class="fa-solid fa-location-dot"></i>
+						@* <div class="wilmington">
+							<img alt="img" src="https://via.placeholder.com/90x90">
 							<div>
-								<h6>13 Units</h6>
-								<p>Between Nairobi and Zanzibar</p>
+								<p>Restaurant of the Month</p>
+								<h6>The Wilmington</h6>
+								<div>
+									<i class="fa-solid fa-star"></i>
+									<i class="fa-solid fa-star"></i>
+									<i class="fa-solid fa-star"></i>
+									<i class="fa-solid fa-star"></i>
+									<i class="fa-regular fa-star-half-stroke"></i>
+								</div>
 							</div>
-						</div>
+						</div> *@
 					</div>
 				</div>
 			</div>
@@ -66,132 +54,27 @@
 				<p>Let us lighten your load by providing transport from the airport, locale information<br> and many other such services.</p>
 			</div>
 			<div class="row align-items-center">
-			<SfSchedule TValue="AppointmentData" Height="650px" @bind-SelectedDate="@CurrentDate">
-				<ScheduleEventSettings DataSource="@DataSource"></ScheduleEventSettings>
-				<ScheduleViews>
-					<ScheduleView Option="View.Day"></ScheduleView>
-					<ScheduleView Option="View.Week"></ScheduleView>
-					<ScheduleView Option="View.WorkWeek"></ScheduleView>
-					<ScheduleView Option="View.Month"></ScheduleView>
-					<ScheduleView Option="View.Agenda"></ScheduleView>
-				</ScheduleViews>
-			</SfSchedule>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="work-card">
+						<img alt="img" src="assets/img/octagon/skyline3.jpg">
+						<h4><span>01</span>  Nairobi, Kilimani</h4>
+						<p>For that traveler that needs the bear minimum at the most affordable price-point.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="work-card">
+						<img alt="img" src="assets/img/octagon/skyline2.jpg">
+						<h4><span>02</span>  Nairobi, Westlands</h4>
+						<p>An elegant location with a variety of rooms and excellant amenities:  a chef, a rooftop pool, a lounge, a gym...</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="work-card">
+						<img alt="img" src="assets/img/Sunset1.jpeg">
+						<h4><span>03</span>  Stone Town, Zanzibar</h4>
+						<p>A rooftop view of Stone Town with along with a lower balcony containing a private theater with a 10 foot by six foot screen to catch over a hundred cable channel or your own amazon firestick offerings.</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
-	<section class="works-section gap no-top" id="skyline">
-		<div class="container">
-            <Skyline></Skyline>
-        </div>
-    </section>    
-	<section class="carousel-section gap no-top" id="carousel">
-		<div class="container">
-<div class="control-section default-carousel-section">
-    <div class="col-lg-12 content-wrapper">
-     <SfCarousel>
-        <CarouselItem>
-            <figure class="img-container">
-                <img src="assets/img/octagon/1.jpg" alt="Golden Gate Bridge, San Francisco" style="height:100%;width:100%;" />
-                <figcaption class="img-caption">Golden Gate Bridge, San Francisco</figcaption>
-            </figure>
-        </CarouselItem>
-        <CarouselItem>
-            <figure class="img-container">
-                <img src="assets/img/octagon/2.jpg" alt="Spring Flower Trees" style="height:100%;width:100%;" />
-                <figcaption class="img-caption">Spring Flower Trees</figcaption>
-            </figure>
-        </CarouselItem>
-        <CarouselItem>
-            <figure class="img-container">
-                <img src="assets/img/octagon/3.jpg" alt="Oddadalen Waterfalls, Norway" style="height:100%;width:100%;" />
-                <figcaption class="img-caption">Oddadalen Waterfalls, Norway</figcaption>
-            </figure>
-        </CarouselItem>
-        <CarouselItem>
-            <figure class="img-container">
-                <img src="assets/img/octagon/4.jpg" alt="Anse Source d'Argent, Seychelles" style="height:100%;width:100%;" />
-                <figcaption class="img-caption">Anse Source d'Argent, Seychelles</figcaption>
-            </figure>
-        </CarouselItem>
-        <CarouselItem>
-            <figure class="img-container">
-                <img src="assets/img/octagon/5.jpg" alt="Stonehenge, England" style="height:100%;width:100%;" />
-                <figcaption class="img-caption">Stonehenge, England</figcaption>
-            </figure>
-        </CarouselItem>
-    </SfCarousel>   
-    
-	</div>
-</div>			
-		</div>
-	</section>
-	<section class="works-section gap no-top" id="Sunset">
-	<div class="control-section">
-	</div>
-	</section>
-
-</div>	
-	@code {
-
-    DateTime CurrentDate = new DateTime(2020, 2, 14);
-    List<AppointmentData> DataSource = new List<AppointmentData>
-    {
-        new AppointmentData { Id = 1, Subject = "Paris", StartTime = new DateTime(2020, 2, 13, 10, 0, 0) , EndTime = new DateTime(2020, 2, 13, 12, 0, 0) },
-        new AppointmentData { Id = 2, Subject = "Germany", StartTime = new DateTime(2020, 2, 15, 10, 0, 0) , EndTime = new DateTime(2020, 2, 15, 12, 0, 0) }
-    };
-    public class AppointmentData
-    {
-        public int Id { get; set; }
-        public string Subject { get; set; }
-        public string Location { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public string Description { get; set; }
-        public bool IsAllDay { get; set; }
-        public string RecurrenceRule { get; set; }
-        public string RecurrenceException { get; set; }
-        public Nullable<int> RecurrenceID { get; set; }
-    }
-
-    ElementReference scrollElement;
-
-    DotNetObjectReference<Index> selfReference;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            selfReference = DotNetObjectReference.Create(this);
-            var minInterval = 500; // Only notify every 500 ms
-            await JS.InvokeVoidAsync("onDivScroll",
-                scrollElement, minInterval);
-        }
-    }
-
-	    private int counter;
-
-    private void OnScroll()
-    {
-        counter++;
-    }
-
-    @* ComboBox ctrl *@
-    public class Location
-    {
-        public string ID { get; set; }
-        public string Text { get; set; }
-    }
-    private List<Location> Locations = new List<Location>()
-{
-        new Location(){ ID= "skyline", Text= "Nairobi Westlands" },
-        new Location(){ ID= "sunset", Text= "Stone Town, Zanibar" },
-        new Location(){ ID= "kilimani", Text= "Nairobi Kilimani" }
-     };
-    public string ComboBoxValue = "sunset";
-    public string ChangeValue { get; set; } = "";
-    public void OnChange(Syncfusion.Blazor.DropDowns.ChangeEventArgs<string, Location> args)
-    {
-        this.ChangeValue = args.ItemData?.Text;
-    }
-	
-}
