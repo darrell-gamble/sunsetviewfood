@@ -1,5 +1,7 @@
 ﻿@page "/"
 @inherits UjuziTek.Pages.FragmentNavigationBase
+ @inject IJSRuntime JS;
+ @inject Microsoft.AspNetCore.Components.NavigationManager nav;
 
 	<!-- header -->
 
@@ -10,15 +12,15 @@
 				<div class="col-lg-6" data-aos="fade-up"  data-aos-delay="200" data-aos-duration="300">
 					<div class="restaurant">
 						<h1>Affordable,</h1>
-						<h1 class="comfy-rooms-style"><span>Comfy </span><span>Rooms</span></h1> 
+						<h1 class="comfy-rooms-style"><span>Comfy Rooms</span></h1> 
 						<p>From Westlake, Nairobi Kenya to Stone Town Zanzibar, Tanzania check out our affordable offerings.</p>
 						<div class="nice-select-one">
-							@* <div class="m-2 p-2">Scroll events: @counter</div> *@
-							<select class="nice-select Advice">
+							<select class="nice-select Advice" @onchange="Alert">
 							  <option>Choose a location</option>
-							  <option>Nairobi Kilimani</option>
-							  <option>Nairobi Studio House Kilimani</option>							  
-							  <option>Stone Town Zanzibar</option>
+								@foreach(var item in locations)
+								{
+									<option value="@item.LocationId">@item.LocationName</option>
+								}
 							</select>	
 						<a href="#sunset" class="button button-2">Book Now</a>
 						</div>
@@ -26,7 +28,7 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="img-restaurant">
-						<img alt="man" src="assets/img/octagon/skyline1.jpg">
+						<img alt="man" src="assets/img/skyline/skyline1.jpg">
 						@* <div class="wilmington">
 							<img alt="img" src="https://via.placeholder.com/90x90">
 							<div>
@@ -46,24 +48,24 @@
 			</div>
 		</div>
 	</section>
-	<!-- works-section -->
-	<section class="works-section gap no-top" id="locations">
+	<!-- locations-section -->
+	<section style="min-height: 95vh" class="works-section" id="locations">
 		<div class="container">
-			<div class="fading" data-aos="fade-up"  data-aos-delay="200" data-aos-duration="300">
-				<h2>Properties</h2>
-				<p>Let us lighten your load by providing transport from the airport, locale information<br> and many other such services.</p>
+			<div>
+				<div class="properties-h2"><h2>Properties</h2></div>
+				<div>Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services. </div>
 			</div>
 			<div class="row align-items-center">
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="work-card">
-						<img alt="img" src="assets/img/octagon/skyline3.jpg">
+						<img alt="img" src="assets/img/skyline/skyline3.jpg">
 						<h4><span>01</span>  Nairobi, Kilimani</h4>
 						<p>For that traveler that needs the bear minimum at the most affordable price-point.</p>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="work-card">
-						<img alt="img" src="assets/img/octagon/skyline2.jpg">
+						<img alt="img" src="assets/img/skyline/skyline2.jpg">
 						<h4><span>02</span>  Nairobi, Westlands</h4>
 						<p>An elegant location with a variety of rooms and excellant amenities:  a chef, a rooftop pool, a lounge, a gym...</p>
 					</div>
@@ -72,9 +74,66 @@
 					<div class="work-card">
 						<img alt="img" src="assets/img/Sunset1.jpeg">
 						<h4><span>03</span>  Stone Town, Zanzibar</h4>
-						<p>A rooftop view of Stone Town with along with a lower balcony containing a private theater with a 10 foot by six foot screen to catch over a hundred cable channel or your own amazon firestick offerings.</p>
+						<p>A rooftop view of Stone Town along with a lower balcony containing a private theater with a 10 foot by six foot screen.</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+	@* Sunset section *@
+	<section class="works-section" id="sunset">
+		<div class="container">
+			<div>
+				<div style="margin-bottom: 20px" class="properties-h2"><h2>Sunset View Hurumzi</h2></div>
+				<p>Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
+			</div>
+			<div class="row align-items-center pre-gallery">
+				<Sunset></Sunset>
+			</div>
+		</div>
+	</section>
+	<section class="works-section" id="kilimani">
+		<div class="container">
+			<div>
+				<div style="margin-bottom: 20px" class="properties-h2"><h2>Nairobi Kilimani</h2></div>
+				<p>Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
+			</div>
+			<div class="row align-items-center pre-gallery">
+				<Kilimani></Kilimani>
+			</div>
+		</div>
+	</section>	
+	<section class="works-section" id="skyline">
+		<div class="container">
+			<div>
+				<div style="margin-bottom: 20px" class="properties-h2"><h2>Nairobi Westlands</h2></div>
+				<p>Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
+			</div>
+			<div class="row align-items-center pre-gallery">
+				<Skyline></Skyline>
+			</div>
+		</div>
+	</section>	
+	
+
+	@code {
+		string selectedLocation = "";
+		class Location {
+			public string LocationId;
+			public string LocationName;
+		}
+
+		List<Location> locations = new() {
+			new Location() {LocationId = "#skyline", LocationName="Nairobi, Westlands"},
+			new Location() {LocationId = "#sunset", LocationName="Stone Town, Zanzibar"},
+			new Location() {LocationId = "#kilimani", LocationName="Nairobi Studio House Kilimani"}
+		};
+		private async Task Alert(Microsoft.AspNetCore.Components.ChangeEventArgs e)
+		{
+			nav.NavigateTo("/");
+			await JS.InvokeVoidAsync("console.log", e.Value.ToString());
+			selectedLocation = e.Value.ToString();
+			nav.NavigateTo(selectedLocation);
+			
+		}
+	}
