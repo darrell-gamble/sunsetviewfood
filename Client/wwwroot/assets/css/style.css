@@ -264,7 +264,7 @@ header {
     align-items: center;
     position: relative; 
     right: 16px;
-    width: 400px;
+    width: 475px;
     margin-top:  6em !important;
 }
 
@@ -3527,7 +3527,7 @@ main .content-area {
   }
 
   #logo > text {
-    width: 500px;
+    width: auto;
   }
 
   /* hexagon 2 */ 
@@ -3619,7 +3619,7 @@ main .content-area {
 
 #comfy {
     box-sizing: border-box;
-    margin:  4px;
+    /* margin:  4px; */
     white-space: nowrap;
 }
 
@@ -3854,7 +3854,51 @@ body {
     min-height: 85vh;
 }
 
-#hexGrid {
-    /* padding-top:  3em; */
+.works-section .container {
+    padding: 4em;
 }
 
+.works-section .container p {
+    margin-top: 1em;
+}
+
+#hexGrid {
+    /* padding-top:  30em; */
+    position: relative;
+    bottom: 5em;
+}
+
+/* scroll top styles */
+
+.login-container img {
+    height: 100px !important;
+    width: 100px !important;
+}
+
+.booking-award {
+    /* height: 2px !important;
+    width: 4px !important; */
+}
+
+/* scroll button */
+.float_but
+  {
+	position:fixed;
+	bottom:80px;
+	right:40px;
+	width:60px;
+	height:60px;
+	background-color: rgb(242, 159, 5);
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+    padding: 1em;
+    
+  }
+
+  .my-float_bt
+   {
+	margin-top:22px;
+   }
+     
