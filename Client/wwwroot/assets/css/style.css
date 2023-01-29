@@ -26,7 +26,7 @@ body, html {
     height: 100%;
     /* display: grid; */
     place-items: center;
-    background-color: #fff;
+    /* background-color: #fff; */
     overflow: auto;
 }
 p{
@@ -108,7 +108,7 @@ figure {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9);
+  /* background-color: rgba(0, 0, 0, 0.9); */
   z-index: -1;
   opacity: 0;
   transition: 1s all;
@@ -264,7 +264,8 @@ header {
     align-items: center;
     position: relative; 
     right: 16px;
-    width: 400px;
+    width: 475px;
+    margin-top:  6em !important;
 }
 
 .hero-section{
@@ -397,7 +398,7 @@ header {
 .work-card img  {
     -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);  
-    max-height: 300px;      
+    max-height: 300px;  
 }
 
 
@@ -1828,7 +1829,7 @@ header.two {
     -moz-box-shadow: 0px 0px 12px 9px rgb(161 151 151 / 15%);
     margin-top: 40px;
     border-radius: 15px;
-    background-color: white;
+    background-color: #fff !important;
 }
 /*sit-at-home*/
 .sit-at-img{
@@ -3505,6 +3506,7 @@ main .content-area {
   
   header {
     grid-area: header;
+    background-color: #fff;
   }
   
   main {
@@ -3525,7 +3527,7 @@ main .content-area {
   }
 
   #logo > text {
-    width: 500px;
+    width: auto;
   }
 
   /* hexagon 2 */ 
@@ -3612,11 +3614,12 @@ main .content-area {
     justify-content: space-between; 
     margin-bottom:  1em;
     max-width:  370px;
+    white-space: nowrap;
 }
 
 #comfy {
     box-sizing: border-box;
-    margin:  4px;
+    /* margin:  4px; */
     white-space: nowrap;
 }
 
@@ -3648,15 +3651,15 @@ main .content-area {
 img {
     min-height: 200px;
     max-height: 700px;
-    min-width:  600px;
+    /* min-width:  600px; */
 }
 
 /* debugging hexagon styles */
-.menu-layer #app #hexGrid {
+/* #hexGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
     grid-gap:  6px;
-}
+} */
 
 /* combo-box styles */
 .e-active {
@@ -3667,3 +3670,235 @@ img {
 /* .Advice, .nice-select {
     border-bottom: rgb(242, 159, 5) !important;
 } */
+
+div.properties-h2 {
+    margin-bottom: 20px !important;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    /* background: rgb(123, 158, 158); */
+}
+
+#hexGrid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  list-style-type: none;
+}
+
+.hex {
+  position: relative;
+  visibility:hidden;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+}
+.hex::after{
+  content:'';
+  display:block;
+  padding-bottom: 86.602%;  /* =  100 / tan(60) * 1.5 */
+}
+.hexIn{
+  position: absolute;
+  width:96%;
+  padding-bottom: 110.851%; /* =  width / sin(60) */
+  margin:0 2%;
+  overflow: hidden;
+  visibility: hidden;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  -webkit-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+      -ms-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+          transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+}
+.hexIn * {
+  position: absolute;
+  visibility: visible;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+}
+.hexLink {
+    display:block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    -webkit-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+        -ms-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+            transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+}
+
+/*** HEX CONTENT **********************************************************************/
+.hex img {
+  left: -100%;
+  right: -100%;
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  -webkit-transform: rotate3d(0,0,0,0deg);
+      -ms-transform: rotate3d(0,0,0,0deg);
+          transform: rotate3d(0,0,0,0deg);
+}
+
+.hex h1, .hex p {
+  width: 100%;
+  padding: 5%;
+  box-sizing:border-box;
+  background-color: rgba(0, 128, 128, 0.8);
+  font-weight: 300;
+  -webkit-transition:  -webkit-transform .2s ease-out, opacity .3s ease-out;
+          transition:          transform .2s ease-out, opacity .3s ease-out;
+}
+.hex h1 {
+  bottom: 50%;
+  padding-top:50%;
+  font-size: 1.5em;
+  z-index: 1;
+  -webkit-transform:translate3d(0,-100%,0);
+      -ms-transform:translate3d(0,-100%,0);
+          transform:translate3d(0,-100%,0);
+}
+.hex h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+  width: 10%;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+}
+.hex p {
+  top: 50%;
+  padding-bottom:50%;
+  -webkit-transform:translate3d(0,100%,0);
+      -ms-transform:translate3d(0,100%,0);
+          transform:translate3d(0,100%,0);
+}
+
+
+/*** HOVER EFFECT  **********************************************************************/
+.hexLink:hover h1, .hexLink:focus h1,
+.hexLink:hover p, .hexLink:focus p{
+  -webkit-transform:translate3d(0,0,0);
+      -ms-transform:translate3d(0,0,0);
+          transform:translate3d(0,0,0);
+}
+
+/*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
+@media (min-width:1201px) { /* <- 5-4  hexagons per row */
+  #hexGrid{
+    padding-bottom: 4.4%
+  }
+  .hex {
+    width: 20%; /* = 100 / 5 */
+  }
+  .hex:nth-child(9n+6){ /* first hexagon of even rows */
+    margin-left:10%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 1200px) and (min-width:901px) { /* <- 4-3  hexagons per row */
+  #hexGrid{
+    padding-bottom: 5.5%
+  }
+  .hex {
+    width: 25%; /* = 100 / 4 */
+  }
+  .hex:nth-child(7n+5){ /* first hexagon of even rows */
+    margin-left:12.5%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
+  #hexGrid{
+    padding-bottom: 7.4%
+  }
+  .hex {
+    width: 33.333%; /* = 100 / 3 */
+  }
+  .hex:nth-child(5n+4){ /* first hexagon of even rows */
+    margin-left:16.666%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 600px) { /* <- 2-1  hexagons per row */
+  #hexGrid{
+    padding-bottom: 11.2%
+  }
+  .hex {
+    width: 50%; /* = 100 / 3 */
+  }
+  .hex:nth-child(3n+3){ /* first hexagon of even rows */
+    margin-left:25%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 400px) {
+    #hexGrid {
+        font-size: 13px;
+    }
+}
+#locations, #sunset, #kilimani, #skyline {
+    background-color: #fff !important;
+    min-width: 90vh;
+}
+
+.works-section, .pre-gallery {
+    margin-bottom:  2em;
+    min-height: 85vh;
+}
+
+.works-section .container {
+    padding: 4em;
+}
+
+.works-section .container p {
+    margin-top: 1em;
+}
+
+#hexGrid {
+    /* padding-top:  30em; */
+    position: relative;
+    bottom: 5em;
+}
+
+/* scroll top styles */
+
+.login-container img {
+    height: 100px !important;
+    width: 100px !important;
+}
+
+.booking-award {
+    /* height: 2px !important;
+    width: 4px !important; */
+}
+
+/* scroll button */
+.float_but
+  {
+	position:fixed;
+	bottom:80px;
+	right:40px;
+	width:60px;
+	height:60px;
+	background-color: rgb(242, 159, 5);
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+    padding: 1em;
+    
+  }
+
+  .my-float_bt
+   {
+	margin-top:22px;
+   }
+     
