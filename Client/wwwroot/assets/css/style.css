@@ -3651,7 +3651,7 @@ main .content-area {
 img {
     min-height: 200px;
     max-height: 700px;
-    /* min-width:  600px; */
+    min-width:  100px;
 }
 
 /* debugging hexagon styles */
@@ -3800,6 +3800,9 @@ body {
   }
   .hex:nth-child(9n+6){ /* first hexagon of even rows */
     margin-left:10%;  /* = width of .hex / 2  to indent even rows */
+  }
+  .img-restaurant{
+    width: 23vw;
   }
 }
 
