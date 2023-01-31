@@ -1,22 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
-/* 
-@media(max-width: 2000px) and (min-width: 1400px){
-    .container {
-        max-width: 1400px;
-        
-    } */
 
-/* @media(max-width: 2000px) and (min-width: 1400px){
-    .container {
-        max-width: 1400px;
-        
-}     */
 img, svg .img-restaurant  {
     width: 100%;
     height: 60vh;
     -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     min-height: 200px;
+    min-width: 23vh;
+}
+
+.img-restaurant {
+    min-width: 30vw !important;
 }
  
 body, html {
@@ -50,7 +44,6 @@ a:hover{
 h1{
   font-size: 60px;
   line-height: 80px;
-  color: #363636;
 }
 h2{
     line-height: 58px;
@@ -3593,13 +3586,24 @@ main .content-area {
     /* width: 400px; */
 }
 
-.restaurant > h1, div {
-    border: 0;
+.restaurant > h1, div, .restaurant > h1 div:focus-visible, 
+.restaurant > h1 div:active, 
+.restaurant > h1 div:target, 
+.restaurant > h1 div::target-text, 
+.restaurant > h1 div::first-line, 
+.restaurant > h1 div:visited  {
+    border: none !important;
+    text-decoration: none;
 }
 @media only screen and (max-width: 730px) {
     .img-restaurant {
         display: none;
         padding: 0;
+    }
+
+    #hexGrid {
+        max-width: 320px !important;       
+        /* background-color: blue;  */
     }
 
 }
@@ -3793,7 +3797,9 @@ body {
 /*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
 @media (min-width:1201px) { /* <- 5-4  hexagons per row */
   #hexGrid{
-    padding-bottom: 4.4%
+    padding-bottom: 4.4%;
+    /* background-color: black; */
+    margin-left: 0;
   }
   .hex {
     width: 20%; /* = 100 / 5 */
@@ -3808,7 +3814,11 @@ body {
 
 @media (max-width: 1200px) and (min-width:901px) { /* <- 4-3  hexagons per row */
   #hexGrid{
-    padding-bottom: 5.5%
+    padding-bottom: 5.5%;
+    /* background-color: orange; */
+    max-width: 65vw !important;
+    margin-left: 0px;
+
   }
   .hex {
     width: 25%; /* = 100 / 4 */
@@ -3818,9 +3828,17 @@ body {
   }
 }
 
+.restaurant h1:hover, .restaurant h1:selection {
+    border: 0;
+}
+
 @media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
   #hexGrid{
-    padding-bottom: 7.4%
+    /* padding-bottom: 7.4%; */
+    /* background-color: green; */
+    max-width: 80vw !important;
+    margin: 0px;
+    margin-top: 8em;
   }
   .hex {
     width: 33.333%; /* = 100 / 3 */
@@ -3828,25 +3846,58 @@ body {
   .hex:nth-child(5n+4){ /* first hexagon of even rows */
     margin-left:16.666%;  /* = width of .hex / 2  to indent even rows */
   }
+  .pre-gallery {
+    padding: 0px !important;
+  }
 }
 
 @media (max-width: 600px) { /* <- 2-1  hexagons per row */
-  #hexGrid{
-    padding-bottom: 11.2%
-  }
+    .nice-select-one, .restaurant p {
+        max-width: 400px;
+        margin-left: 2em;
+    }
+
+    .works-section .container div {
+        max-width: 300px;
+    }
+
+    .restaurant h1 {
+        margin-left: .75em;
+    }
+    img, svg .img-restaurant, .work-card {
+        margin: 0px;
+        max-width: 300px;
+        align-content: flex-start;
+    }
+    #hexGrid{   
+        padding-bottom: 11.2%;
+        max-width: 320px !important;
+        /* background-color: red; */
+        margin-top: 8em;
+        margin-left: 2em;
+        margin-right: 0px;
+    }
   .hex {
     width: 50%; /* = 100 / 3 */
-  }
+   }
   .hex:nth-child(3n+3){ /* first hexagon of even rows */
     margin-left:25%;  /* = width of .hex / 2  to indent even rows */
+  } 
+
+  div.properties-h2 h2{
+    font-size: 22px;
+  }
+
+  div.works-section .container p, div.section-container p {
+    font-size: 14px !important;
+    max-width: 300px;
+  }
+
+  section.works-section {
+    padding: 0%;
   }
 }
 
-@media (max-width: 400px) {
-    #hexGrid {
-        font-size: 13px;
-    }
-}
 #locations, #sunset, #kilimani, #skyline {
     background-color: #fff !important;
     min-width: 90vh;
@@ -3868,7 +3919,7 @@ body {
 #hexGrid {
     /* padding-top:  30em; */
     position: relative;
-    bottom: 5em;
+    /* bottom: 5em; */
 }
 
 /* scroll top styles */
@@ -3904,4 +3955,19 @@ body {
    {
 	margin-top:22px;
    }
-     
+}
+
+
+.section-container {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.comfy-rooms-style span {
+    position: relative;
+    top: -.3em;
+}
+
+.img-restaurant img {
+    min-width: 100%;
+}
