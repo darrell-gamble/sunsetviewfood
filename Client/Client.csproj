@@ -10,14 +10,14 @@
     <PackageReference Include="BlazorAnimate" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0" PrivateAssets="all" />
+    <PackageReference Include="Syncfusion.Blazor.Buttons" Version="20.4.0.44" />
+    <PackageReference Include="Syncfusion.Blazor.Calendars" Version="20.4.0.44" />
+    <PackageReference Include="Syncfusion.Blazor.Navigations" Version="20.4.0.44" />
+    <PackageReference Include="Syncfusion.Blazor.Schedule" Version="20.4.0.44" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Syncfusion.Blazor" Version="20.4.0.43" />
   </ItemGroup>
 
 </Project>
