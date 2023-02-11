@@ -215,8 +215,7 @@ header {
     font-weight: bold;
     width: 10px !important;
     text-transform: capitalize;
-    border: 1px solid white;
-    border-color: transparent;
+    border: 1px solid white !important;
 
 }
 .restaurant p {
@@ -1485,6 +1484,10 @@ ul.paragraph li i {
 
 .nav-link{
     color: #363636;
+    border: 1px solid white;
+    position: relative;
+    left: 1.5em;
+    margin: 2px;
 }
 .nav-pills .nav-link {
     font-size: 18px;
