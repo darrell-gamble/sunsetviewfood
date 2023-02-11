@@ -213,8 +213,11 @@ header {
 
 .restaurant h1 {
     font-weight: bold;
-    width: 61%;
+    width: 10px !important;
     text-transform: capitalize;
+    border: 1px solid white;
+    border-color: transparent;
+
 }
 .restaurant p {
     width: 73%;
@@ -3829,7 +3832,8 @@ body {
 }
 
 .restaurant h1:hover, .restaurant h1:selection {
-    border: 0;
+    border: none;
+    border-width: 10px;
 }
 
 @media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
@@ -3899,6 +3903,10 @@ body {
 
   section.works-section {
     padding: 0%;
+  }
+  footer
+  { 
+    padding: 2em !important;
   }
 }
 
