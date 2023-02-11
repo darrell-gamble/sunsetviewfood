@@ -27,15 +27,13 @@
 				        </li>
 				        <li class="navbar-dropdown">
 				          <a href="#locations">Locations</a>
-				        </li>
-				        <li class="navbar-dropdown">
-				          <a href="#">Gallery</a>
 				          <div class="dropdown">
 				            <a href="#footer">Services</a>
 				            <a href="#locations">FAQ</a>
 				            <a href="##6">Pricing Table</a>
 				            <a href="#">404</a>
 				          </div>
+
 				        </li>
 				        <li class="navbar-dropdown">
 				          <a href="#contact-us">Contacts</a>
@@ -63,3 +61,13 @@
 		</div>
 	   </div>
   </header>
+  @code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

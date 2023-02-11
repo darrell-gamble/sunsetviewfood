@@ -3852,11 +3852,6 @@ body {
 }
 
 @media (max-width: 600px) { /* <- 2-1  hexagons per row */
-    .nice-select-one, .restaurant p {
-        max-width: 400px;
-        margin-left: 2em;
-    }
-
     .works-section .container div {
         max-width: 300px;
     }
@@ -3864,25 +3859,34 @@ body {
     .restaurant h1 {
         margin-left: .75em;
     }
+    .restaurant p {
+        width: 60% !important;
+        margin-left: 2.3em !important;
+    }
     img, svg .img-restaurant, .work-card {
         margin: 0px;
         max-width: 300px;
         align-content: flex-start;
     }
     #hexGrid{   
-        padding-bottom: 11.2%;
-        max-width: 320px !important;
-        /* background-color: red; */
-        margin-top: 8em;
-        margin-left: 2em;
-        margin-right: 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin-top: 2em;
+    }
+
+    .hex img {
+        width: 110vw !important;
+        height: 200px !important;
+        position: absolute;
+        -webkit-transform: rotate3d(0,0,0,0deg);
+        -ms-transform: rotate3d(0,0,0,0deg);
+        transform: rotate3d(0,0,0,0deg);
+        margin: 1em;
     }
   .hex {
-    width: 50%; /* = 100 / 3 */
+    width: 100%; /* = 100 / 3 */
    }
-  .hex:nth-child(3n+3){ /* first hexagon of even rows */
-    margin-left:25%;  /* = width of .hex / 2  to indent even rows */
-  } 
 
   div.properties-h2 h2{
     font-size: 22px;
@@ -3918,8 +3922,19 @@ body {
 
 #hexGrid {
     /* padding-top:  30em; */
-    position: relative;
+    /* position: relative; */
     /* bottom: 5em; */
+}
+
+.hex img {
+    left: -100%;
+    right: -100%;
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+    -webkit-transform: rotate3d(0,0,0,0deg);
+    -ms-transform: rotate3d(0,0,0,0deg);
+    transform: rotate3d(0,0,0,0deg);
 }
 
 /* scroll top styles */
