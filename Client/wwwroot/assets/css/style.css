@@ -11,6 +11,7 @@ img, svg .img-restaurant  {
 
 .img-restaurant {
     min-width: 30vw !important;
+    border: 1px solid white;
 }
  
 body, html {
@@ -3612,7 +3613,17 @@ main .content-area {
         /* background-color: blue;  */
     }
 
+    .works-section .container {
+        /* text-align: center; */
+        margin: 1em 3em;
+        width: 90vw;
+        position: relative;
+        right: 2%;
+    }
+
 }
+
+#regularGrid { display: none;}
 
 
 #MainHeaderText {
@@ -3837,6 +3848,7 @@ body {
 .restaurant h1:hover, .restaurant h1:selection {
     border: none;
     border-width: 10px;
+    border: 1px solid white;
 }
 
 @media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
@@ -3861,21 +3873,44 @@ body {
 @media (max-width: 600px) { /* <- 2-1  hexagons per row */
     .works-section .container div {
         max-width: 300px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .works-section .container {
+        /* text-align: center; */
+        margin: 0px;
+        width: 90vw;
+        position: relative;
+        right: 4%;
+    }
+
+    .works-section .container p {
+        /* text-align: center; */
+        margin: 0px 3em;
+        width: 65vw;
     }
 
     .restaurant h1 {
         margin-left: .75em;
+        border: 1px solid white;
     }
     .restaurant p {
         width: 60% !important;
         margin-left: 2.3em !important;
     }
     img, svg .img-restaurant, .work-card {
-        margin: 0px;
+        margin: 10px 0px;
         max-width: 300px;
         align-content: flex-start;
+        min-width: 80vw !important;
     }
     #hexGrid{   
+        display: none;
+    }
+
+    #regularGrid {   
         display: grid;
         grid-template-columns: 1fr;
         width: 100%;
@@ -3884,14 +3919,24 @@ body {
         bottom: 5em;        
     }
 
-    .hex img {
-        width: 110vw !important;
-        height: 200px !important;
-        position: absolute;
-        -webkit-transform: rotate3d(0,0,0,0deg);
-        -ms-transform: rotate3d(0,0,0,0deg);
-        transform: rotate3d(0,0,0,0deg);
+    ul#regularGrid li {
+        display: grid;
+        align-items: center;
+        justify-items: center;
         margin: 1em;
+    }
+
+
+    .hex img {
+        width: 100vw !important;
+        height: 200px !important;
+        clip-path: circle(50%) !important;
+        /* position: absolute; */
+        /* -webkit-transform: rotate3d(0,0,0,0deg);
+        -ms-transform: rotate3d(0,0,0,0deg);
+        transform: rotate3d(0,0,0,0deg); */
+        margin: 30em;
+
     }
   .hex {
     width: 100%; /* = 100 / 3 */
