@@ -270,6 +270,7 @@ header {
     background-size: cover;
     overflow: hidden;
     position: relative;
+    left: 2%;
 }
 .hero-section.about.blog-page {
     overflow: initial;
@@ -3601,27 +3602,9 @@ main .content-area {
 .restaurant > h1 div:visited  {
     border: none !important;
     text-decoration: none;
+    border: 1px solid white;    
 }
-@media only screen and (max-width: 730px) {
-    .img-restaurant {
-        display: none;
-        padding: 0;
-    }
 
-    #hexGrid {
-        max-width: 320px !important;       
-        /* background-color: blue;  */
-    }
-
-    .works-section .container {
-        /* text-align: center; */
-        margin: 1em 3em;
-        width: 90vw;
-        position: relative;
-        right: 2%;
-    }
-
-}
 
 #regularGrid { display: none;}
 
@@ -3825,42 +3808,99 @@ body {
     margin-left:10%;  /* = width of .hex / 2  to indent even rows */
   }
   .img-restaurant{
-    width: 23vw;
+    width: 40vw !important;
   }
 }
 
-@media (max-width: 1200px) and (min-width:901px) { /* <- 4-3  hexagons per row */
-  #hexGrid{
-    padding-bottom: 5.5%;
-    /* background-color: orange; */
-    max-width: 65vw !important;
-    margin-left: 0px;
-
-  }
+@media (min-width:901px) and  (max-width: 1200px){ /* <- 4-3  hexagons per row */
+    #hexGrid{
+        display: none;
+      }
+    
+      #regularGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 120vw;
+        margin-top: 7em;
+        position: relative;
+        bottom: 5em;    
+        /* background-color: teal;  */
+        grid-template-columns:  1fr 1fr;        
+      }
   .hex {
     width: 25%; /* = 100 / 4 */
   }
   .hex:nth-child(7n+5){ /* first hexagon of even rows */
     margin-left:12.5%;  /* = width of .hex / 2  to indent even rows */
   }
+
+    ul#regularGrid li {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        margin: 1em;
+    }
+
+    .img-restaurant {
+        /* border: 10px solid orange !important; */
+        margin: 2em;
+        /* max-height: 100px; */
+        border: 5px solid blue;
+
+        max-width: 80vw !important;
+    }
+
+    .container, .container-md, .container-sm {
+        max-width: 1000px;
+    }
+
+    .restaurant {
+        position: relative;
+        left: 6%;
+        bottom: 10px;
+    }
+
 }
 
+
+
 .restaurant h1:hover, .restaurant h1:selection {
-    border: none;
     border-width: 10px;
     border: 1px solid white;
 }
 
-@media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
+@media  (min-width:601px) and (max-width: 900px) { /* <- 3-2  hexagons per row */
   #hexGrid{
-    /* padding-bottom: 7.4%; */
-    /* background-color: green; */
-    max-width: 80vw !important;
-    margin: 0px;
-    margin-top: 8em;
+    display: none;
   }
+
+  #regularGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 7em;
+    position: relative;
+    bottom: 5em;      
+    /* background-color: grey; */
+    position: relative;
+    left: 8%;
+  }
+
+  .works-section .container {
+    /* text-align: center; */
+    margin: 0px;
+    width: 90vw;
+    position: relative;
+    right: 4%;
+}
+
+.works-section .container p {
+    /* text-align: center; */
+    margin: 0px 3em;
+    width: 65vw;
+}
+
   .hex {
-    width: 33.333%; /* = 100 / 3 */
+    width: 33.333%; = 100 / 3
   }
   .hex:nth-child(5n+4){ /* first hexagon of even rows */
     margin-left:16.666%;  /* = width of .hex / 2  to indent even rows */
@@ -3868,6 +3908,13 @@ body {
   .pre-gallery {
     padding: 0px !important;
   }
+
+    ul#regularGrid li {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        margin: 1em;
+    }
 }
 
 @media (max-width: 600px) { /* <- 2-1  hexagons per row */
@@ -3916,7 +3963,8 @@ body {
         width: 100%;
         margin-top: 7em;
         position: relative;
-        bottom: 5em;        
+        bottom: 5em;     
+        /* background-color: dark-blue;    */
     }
 
     ul#regularGrid li {
@@ -4043,4 +4091,6 @@ body {
 
 .img-restaurant img {
     min-width: 100%;
+    padding-top: 0% !important;
+    margin-top: 2em !important
 }
