@@ -283,8 +283,8 @@ $( ".info2" ).click(function() {
 });
 /*---------  AOS  ----------------*/
 //AOS animation 11
-        AOS.init({
-          once:true
+AOS.init({
+
 });
 /*---------      menu-btn   -------------------*/
 $('.menu-btn').on('click', function () {
@@ -407,4 +407,23 @@ btn.on('click', function(e) {
 function onDivScroll() {
   console.log('gotcha');
 }
+
+// window.addEventListener('scroll', () => {
+//   // alert('scrolling entered')
+//   const scrolled = window.scrollY;
+//   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+
+//   if(Math.ceil(scrolled) === scrollable) {
+//       console.log('You\'ve reached the bottom');
+//   }
+//   // console.log(scrollable);
+//   // console.log(Math.ceil(scrolled));
+//   console.log('You have scrolled:  ' + scrolled);
+//   if(Math.ceil(scrolled) > 0) {
+//       document.body.style="background-color: black; color: white;";
+//   } else {
+//       document.body.style="background-color: white;";
+//   }
+// });
+
 

@@ -10,17 +10,33 @@ window.blazorHelpers = {
     }
 };
 
-/* floating btn js */
-let unitsScrollTopBtn = document.getElementById("unitsBtn");
+const scrollTopBtn = document.createElement("button");
+scrollTopBtn.id = 'float_but';
+scrollTopBtn.innerHTML = "<i class='fas fa-arrow-up'></i>";
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+});
 
-// When the user scrolls down 20px from the top of the document, show the button
+
+// scrollTopBtn.setAttribute("style", "display: hidden !important;");
+// scrollTopBtn.className.add("hide");
 window.onscroll = function() {scrollFunction()};
-
+// alert(document.body.scrollTop);
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    unitsScrollTopBtn.style.display = "block";
+
+    // scrollTopBtn.setAttribute("style", "display: block;");
+    // alert('adding scroll top button')
+    // alert(document.body.scrollTop);
+    if(scrollTopBtn) {
+      document.body.appendChild(scrollTopBtn); 
+    }
+
   } else {
-    unitsScrollTopBtn.style.display = "none";
+    // alert('button should be hidden')
+    if(scrollTopBtn) {
+      document.body.removeChild(scrollTopBtn); 
+    }
   }
 }
 
@@ -29,3 +45,7 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+window.addEventListener('scroll', () => {
+
+});
