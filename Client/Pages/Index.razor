@@ -1,7 +1,8 @@
 ﻿@page "/"
+@implements IAsyncDisposable
+@inject IJSRuntime JS;
 @inherits UjuziTek.Pages.FragmentNavigationBase
- @inject IJSRuntime JS;
- @inject Microsoft.AspNetCore.Components.NavigationManager nav;
+@inject Microsoft.AspNetCore.Components.NavigationManager nav;
 
 	<!-- header -->
 
@@ -43,28 +44,28 @@
 		<div class="container">
 			<div>
 				<div class="properties-h2"><h2>Properties</h2></div>
-				<div id="properties-intro">Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services. </div>
+				<div id="properties-intro">Let us make your travels memorable by providing a lovely home away from home. </div>
 			</div>
 			<div class="row align-items-center">
 				<div class="col-lg-4 col-md-6 col-sm-12" data-aos="flip-right" data-aos-delay="200" data-aos-duration="700">
 					<a href="#kilimani"><div class="work-card"> 	
 						<img alt="img" src="assets/img/kilimani/kilimani10.jpg">
-						<h4><span>01</span>  Nairobi, Kilimani</h4>
-						<p>For that traveler that needs the bear minimum at the most affordable price-point.</p>
+						<h4><span>01</span>  Studio House, Nairobi Kilimani</h4>
+						<p>Spacious studio house with a separate bedroom with a garden and a gym close to hospitals, malls and a bus station.</p>
 					</div></a>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-in" data-aos-delay="500" data-aos-duration="2000">
 					<a href="#skyline"><div class="work-card">
 						<img alt="img" src="assets/img/skyline/skyline8.jpg">
-						<h4><span>02</span>  Nairobi, Westlands</h4>
-						<p>An elegant location with a variety of rooms and excellant amenities:  a chef, a rooftop pool, a lounge, a gym...</p>
+						<h4><span>02</span>  Private Rooms, Nairobi Kilimani</h4>
+						<p>An elegant location with a variety of rooms and excellant amenities:  a rooftop pool, sauna, steam bath, restaurant and gym...</p>
 					</div></a>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-12" data-aos="flip-left" data-aos-delay="200" data-aos-duration="700">
 					<a href="#sunset"><div class="work-card">
 						<img alt="img" src="assets/img/sunset/sunset4.jpg">
-						<h4><span>03</span>  Stone Town, Zanzibar</h4>
-						<p>A rooftop view of Stone Town along with a lower balcony containing a private theater with a 10 foot by six foot screen.</p>
+						<h4><span>03</span>  Private Rooms, Stone Town, Zanzibar</h4>
+						<p>A rooftop view of Stone Town along with a private theater with a 10ft by 6ft screen. Five minutes away from famous forodhani beach / park.</p>
 					</div></a>					
 				</div>
 			</div>
@@ -86,7 +87,7 @@
 	<section class="works-section" id="kilimani">
 		<div class="container">
 			<div>
-				<div style="margin-bottom: 20px" class="properties-h2"><h2>Nairobi Kilimani</h2></div>
+				<div style="margin-bottom: 20px" class="properties-h2"><h2>Studio House, Nairobi Kilimani</h2></div>
 			
 				<p style="">Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
 			</div>
@@ -95,10 +96,23 @@
 			</div>
 		</div>
 	</section>	
+	<section class="works-section" id="booking">
+		<div class="container">
+			<div style="position: relative; bottom: 2em;">
+				<div class="properties-h2"><h2>Book a room</h2></div>
+			
+				<p>Let us lighten your load by emailing Mercy to schedule a booking.</p>
+			</div>
+			<div class="row align-items-top pre-gallery" data-aos="flip-right"  data-aos-delay="200" data-aos-duration="1000">
+				<Booking></Booking>
+			</div>
+		</div>
+	</section>	
+
 	<section class="works-section" id="skyline">
 		<div class="container" style="padding: 4em;">
 			<div>
-				<div style="margin-bottom: 50px" class="properties-h2"><h2>Nairobi Westlands</h2></div>
+				<div style="margin-bottom: 50px" class="properties-h2"><h2>Private Rooms, Nairobi Kilimani</h2></div>
 				<p>Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
 			</div>
 			<div class="row align-items-center pre-gallery">
@@ -126,4 +140,33 @@
 			nav.NavigateTo(selectedLocation);
 			
 		}
+
+		private IJSObjectReference? module;
+		private string? result;
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+			if(!firstRender) {
+				Console.WriteLine("Second render or above");
+			}
+            if(firstRender) 
+			{
+				List<string> files = new List<string>();
+				files.Add("/assets/js/bing.js");
+				object data = await JS.InvokeAsync<IJSObjectReference>("import", files.ToArray());
+				if(module!=null)
+				{
+					result = await module.InvokeAsync<string>("load_map");
+				}
+			} 
+
+
+        }
+		async ValueTask IAsyncDisposable.DisposeAsync()
+		{
+			if(module is not null) {
+				await module.DisposeAsync();
+			}
+		}
+
+
 	}

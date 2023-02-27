@@ -1,0 +1,141 @@
+.e-schedule .e-timeline-view .e-resource-left-td {
+    vertical-align: bottom;
+    width: 220px;
+}
+.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+    display: flex;
+    font-weight: 500;
+    padding: 0;
+}
+.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div {
+    border-color: #0000001f;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    flex: 0 0 33.3%;
+    font-weight: 500;
+    line-height: 36px;
+    padding-left: 5px;
+}
+.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div:last-child {
+    border-right: 0;
+}
+.e-schedule .e-timeline-view .e-block-appointment {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.e-schedule .template-wrap {
+    display: flex;
+    height: 100%;
+    text-align: left;
+}
+.e-schedule .e-resource-cells .template-wrap > div {
+    border-right-color: #0000001f;
+    border-right-style: solid;
+    border-right-width: 1px;
+    flex: 0 0 33.3%;
+    font-weight: 500;
+    line-height: 58px;
+    overflow: hidden;
+    padding-left: 5px;
+    text-overflow: ellipsis;
+}
+.e-schedule .e-resource-cells .template-wrap > div:last-child {
+    border-right: 0;
+}
+.e-schedule .e-timeline-view .e-resource-cells,
+.e-schedule .e-timeline-month-view .e-resource-cells {
+    padding-left: 0;
+}
+.e-schedule .e-timeline-view .e-date-header-wrap table col,
+.e-schedule .e-timeline-view .e-content-wrap table col {
+    width: 100px;
+}
+.e-schedule .e-read-only {
+    opacity: .8;
+}
+.bootstrap4 .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+.bootstrap5 .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+    height: 37px;
+}
+.bootstrap4 .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div {
+    height: 37px;
+    line-height: 37px;
+}
+.bootstrap4.e-bigger .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+.bootstrap5.e-bigger .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+.bootstrap5-dark.e-bigger .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+    height: 39px;
+}
+.bootstrap4.e-bigger .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div {
+    height: 39px;
+    line-height: 39px;
+}
+.tailwind .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div,
+.tailwind-dark .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div {
+    line-height: 38px;
+}
+.tailwind .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div {
+    background-color: #f3f4f6;
+    border-color: #e5e7eb;
+}
+.tailwind-dark .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div {
+    background-color: #374151;
+    border-color: #4b5563;
+}
+.tailwind.e-bigger .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div,
+.tailwind-dark.e-bigger .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div {
+    line-height: 40px;
+}
+.highcontrast .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div {
+    border-color: #969696;
+}
+.fabric .e-schedule .e-timeline-view .e-resource-left-td,
+.fabric-dark .e-schedule .e-timeline-view .e-resource-left-td {
+    width: 240px;
+}
+.fabric-dark .e-schedule .e-resource-cells .template-wrap > div,
+.fabric-dark .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div {
+    border-color: #414040;
+}
+.fluent-dark .e-schedule .e-resource-cells .template-wrap > div,
+.fluent-dark .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div {
+    border-color: #292827;
+}
+.bootstrap-dark .e-schedule .e-resource-cells .template-wrap > div,
+.bootstrap-dark .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div {
+    border-color: #505050;
+}
+.bootstrap5-dark .e-schedule .e-resource-cells .template-wrap > div,
+.bootstrap5-dark .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div {
+    border-color: #444c54;
+}
+.tailwind-dark .e-schedule .e-resource-cells .template-wrap > div {
+    border-color: #4b5563;
+}
+.highcontrast .e-schedule .e-resource-cells .template-wrap > div {
+    border-color: #969696;
+}
+@@media (max-width: 550px) {
+    .e-schedule .e-timeline-view .e-resource-left-td {
+        width: 100px;
+    }
+    .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div,
+    .e-schedule .e-resource-cells .template-wrap > div {
+        flex: 0 0 100%;
+    }
+    .e-schedule .e-resource-cells .template-wrap > div:first-child {
+        border-right: 0;
+    }
+    .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text > div:first-child {
+        border-right: 0;
+    }
+    .e-schedule .room-type,
+    .e-schedule .room-capacity {
+        display: none;
+    }
+}
+
+.e-field {
+    color: rgb(115, 63, 205) !important;
+}
