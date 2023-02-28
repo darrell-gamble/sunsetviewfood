@@ -1,6 +1,6 @@
 ﻿@page "/"
 @implements IAsyncDisposable
-@inject IJSRuntime JS;
+@inject IJSRuntime JSRuntime
 @inherits UjuziTek.Pages.FragmentNavigationBase
 @inject Microsoft.AspNetCore.Components.NavigationManager nav;
 
@@ -50,8 +50,8 @@
 				<div class="col-lg-4 col-md-6 col-sm-12" data-aos="flip-right" data-aos-delay="200" data-aos-duration="700">
 					<a href="#kilimani"><div class="work-card"> 	
 						<img alt="img" src="assets/img/kilimani/kilimani10.jpg">
-						<h4><span>01</span>  Studio House, Nairobi Kilimani</h4>
-						<p>Spacious studio house with a separate bedroom with a garden and a gym close to hospitals, malls and a bus station.</p>
+						<h4><span>01</span>  Condo, Nairobi Kilimani</h4>
+						<p>Spacious Condo with a separate bedroom with a garden and a gym close to hospitals, malls and a bus station.</p>
 					</div></a>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-in" data-aos-delay="500" data-aos-duration="2000">
@@ -87,7 +87,7 @@
 	<section class="works-section" id="kilimani">
 		<div class="container">
 			<div>
-				<div style="margin-bottom: 20px" class="properties-h2"><h2>Studio House, Nairobi Kilimani</h2></div>
+				<div style="margin-bottom: 20px" class="properties-h2"><h2>Condo, Nairobi Kilimani</h2></div>
 			
 				<p style="">Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
 			</div>
@@ -120,53 +120,34 @@
 			</div>
 		</div>
 	</section>	
-	@code {
-		string selectedLocation = "";
-		class Location {
-			public string LocationId;
-			public string LocationName;
-		}
 
-		List<Location> locations = new() {
-			new Location() {LocationId = "#skyline", LocationName="Nairobi, Westlands"},
-			new Location() {LocationId = "#sunset", LocationName="Stone Town, Zanzibar"},
-			new Location() {LocationId = "#kilimani", LocationName="Nairobi Studio House Kilimani"}
-		};
-		private async Task Alert(Microsoft.AspNetCore.Components.ChangeEventArgs e)
-		{
-			nav.NavigateTo("/");
-			await JS.InvokeVoidAsync("console.log", e.Value.ToString());
-			selectedLocation = e.Value.ToString();
-			nav.NavigateTo(selectedLocation);
-			
-		}
+	<section class="works-section" id="bing">
+		<div class="container" style="padding: 4em;">
+			<div>
+				<div style="margin-bottom: 50px" class="properties-h2"><h2>Bing Maps</h2></div>
+				<p>Find us on the map.</p>
+			</div>
+			<div class="row align-items-center pre-gallery">
+				<div id="map"></div>
+			</div>
+		</div>
+	</section>	
 
-		private IJSObjectReference? module;
-		private string? result;
-        protected override async Task OnAfterRenderAsync(bool firstRender)
+@code {
+    private IJSObjectReference? module;
+    private string? result;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        module = await JSRuntime.InvokeAsync<IJSObjectReference>("import","./assets/js/bing.js");
+        if(module != null) 
         {
-			if(!firstRender) {
-				Console.WriteLine("Second render or above");
-			}
-            if(firstRender) 
-			{
-				List<string> files = new List<string>();
-				files.Add("/assets/js/bing.js");
-				object data = await JS.InvokeAsync<IJSObjectReference>("import", files.ToArray());
-				if(module!=null)
-				{
-					result = await module.InvokeAsync<string>("load_map");
-				}
-			} 
-
-
+            result = await module.InvokeAsync<string>("load_map");
         }
-		async ValueTask IAsyncDisposable.DisposeAsync()
-		{
-			if(module is not null) {
-				await module.DisposeAsync();
-			}
-		}
-
-
-	}
+    }
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if(module is not null) {
+            await module.DisposeAsync();
+        }
+    }
+}
