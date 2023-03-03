@@ -1,6 +1,6 @@
 ﻿@page "/"
-@implements IAsyncDisposable
 @inject IJSRuntime JSRuntime
+@using Microsoft.JSInterop
 @inherits UjuziTek.Pages.FragmentNavigationBase
 @inject Microsoft.AspNetCore.Components.NavigationManager nav;
 
@@ -20,20 +20,6 @@
 				<div class="col-lg-6">
 					<div class="img-restaurant" data-aos="fade-left"  data-aos-delay="300" data-aos-duration="2000">
 						<img alt="man" src="assets/img/skyline/skyline1.jpg">
-						@* <div class="wilmington">
-							<img alt="img" src="https://via.placeholder.com/90x90">
-							<div>
-								<p>Restaurant of the Month</p>
-								<h6>The Wilmington</h6>
-								<div>
-									<i class="fa-solid fa-star"></i>
-									<i class="fa-solid fa-star"></i>
-									<i class="fa-solid fa-star"></i>
-									<i class="fa-solid fa-star"></i>
-									<i class="fa-regular fa-star-half-stroke"></i>
-								</div>
-							</div>
-						</div> *@
 					</div>
 				</div>
 			</div>
@@ -50,7 +36,7 @@
 				<div class="col-lg-4 col-md-6 col-sm-12" data-aos="flip-right" data-aos-delay="200" data-aos-duration="700">
 					<a href="#kilimani"><div class="work-card"> 	
 						<img alt="img" src="assets/img/kilimani/kilimani10.jpg">
-						<h4><span>01</span>  Condo, Nairobi Kilimani</h4>
+						<h4><span>01</span>  Private Condo, Nairobi Kilimani</h4>
 						<p>Spacious Condo with a separate bedroom with a garden and a gym close to hospitals, malls and a bus station.</p>
 					</div></a>
 				</div>
@@ -73,81 +59,37 @@
 
 	</section>
 	@* Sunset section *@
-	<section class="works-section" id="sunset">
+	<section class="works-section" id="sunset" style="padding: 4em;">
 		<div class="container">
-			<div>
-				<div style="margin-bottom: 20px" class="properties-h2"><h2>Sunset View Hurumzi</h2></div>
-				<p>Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
+			<div style="position: relative; right: 4em; margin-bottom: 20px; horizontal-align: center" class="properties-h2">
+				<div style="position: relative; left: 2%; margin-bottom: 20px; horizontal-align: center" class="properties-h2"><h2>Sunset View Hurumzi</h2></div>
+				<p style="text-align: center">Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
 			</div>
-			<div class="row align-items-center pre-gallery">
+			<div class="row align-items-center pre-gallery" style="display: flex; justify-content: center;">
 				<Sunset></Sunset>
 			</div>
 		</div>
 	</section>
-	<section class="works-section" id="kilimani">
+	<section class="works-section" id="kilimani" style="padding: 4em;">
 		<div class="container">
 			<div>
-				<div style="margin-bottom: 20px" class="properties-h2"><h2>Condo, Nairobi Kilimani</h2></div>
+				<div style="position: relative; right: 4em; margin-bottom: 20px; text-align: center;" class="properties-h2"><h2>Condo, Nairobi Kilimani</h2></div>
 			
-				<p style="">Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
+				<p style="position: relative; right: 4em; margin-bottom: 20px; horizontal-align: center; text-align: center;">Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
 			</div>
-			<div class="row align-items-center pre-gallery">
+			<div class="row align-items-center pre-gallery" style="display: flex; justify-content: center;">
 				<Kilimani></Kilimani>
 			</div>
 		</div>
 	</section>	
-	<section class="works-section" id="booking">
-		<div class="container">
-			<div style="position: relative; bottom: 2em;">
-				<div class="properties-h2"><h2>Book a room</h2></div>
-			
-				<p>Let us lighten your load by emailing Mercy to schedule a booking.</p>
-			</div>
-			<div class="row align-items-top pre-gallery" data-aos="flip-right"  data-aos-delay="200" data-aos-duration="1000">
-				<Booking></Booking>
-			</div>
-		</div>
-	</section>	
-
 	<section class="works-section" id="skyline">
 		<div class="container" style="padding: 4em;">
 			<div>
-				<div style="margin-bottom: 50px" class="properties-h2"><h2>Private Rooms, Nairobi Kilimani</h2></div>
-				<p>Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
+				<div style="margin-bottom: 50px; text-align: center;" class="properties-h2"><h2>Private Rooms, Nairobi Kilimani</h2></div>
+				<p style="position: relative; right: 1em; margin-bottom: 20px; horizontal-align: center; text-align: center;">Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
 			</div>
-			<div class="row align-items-center pre-gallery">
+			<div class="row align-items-center pre-gallery" style="display: flex; justify-content: center; margin-left: 5em;">
 				<Skyline></Skyline>
 			</div>
 		</div>
 	</section>	
-
-	<section class="works-section" id="bing">
-		<div class="container" style="padding: 4em;">
-			<div>
-				<div style="margin-bottom: 50px" class="properties-h2"><h2>Bing Maps</h2></div>
-				<p>Find us on the map.</p>
-			</div>
-			<div class="row align-items-center pre-gallery">
-				<div id="map"></div>
-			</div>
-		</div>
-	</section>	
-
-@code {
-    private IJSObjectReference? module;
-    private string? result;
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        module = await JSRuntime.InvokeAsync<IJSObjectReference>("import","./assets/js/bing.js");
-        if(module != null) 
-        {
-            result = await module.InvokeAsync<string>("load_map");
-        }
-    }
-    async ValueTask IAsyncDisposable.DisposeAsync()
-    {
-        if(module is not null) {
-            await module.DisposeAsync();
-        }
-    }
-}

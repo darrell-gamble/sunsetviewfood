@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
-img, svg .img-restaurant  {
+svg .img-restaurant, svg .img-restaurant img  {
     width: 100%;
     height: 60vh;
     -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
@@ -382,10 +382,22 @@ header {
     margin: auto;
 }
 
-.work-card img  {
+.work-card img, .img-restaurant img  {
+    width: 100%;
+    height: 60vh;
     -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);  
-    max-height: 300px;  
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    min-height: 200px;
+    min-width: 23vh;
+}
+
+.work-card img {
+    width: 100%;
+    height: 35vh;
+    -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    min-height: 200px;
+    min-width: 23vh;
 }
 
 
@@ -3817,7 +3829,7 @@ body {
         margin-top: 7em;
         position: relative;
         bottom: 5em;    
-        /* background-color: teal;  */
+        background-color: teal; 
         grid-template-columns:  1fr 1fr;        
       }
   .hex {
@@ -3883,7 +3895,34 @@ body {
     /* background-color: grey; */
     position: relative;
     left: 8%;
+    width: 100%;
   }
+
+  .properties-h2 {
+    color: red;
+  }
+
+  #google, #booking {
+    display: none;
+  }
+
+  .work-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    /* position: relative;
+    left: 2em; */
+  }
+
+  #regularGrid img {
+    width: 100%;
+    min-width: 25em;
+    min-height: 20em;
+  }
+
+  
 
   .works-section .container {
     /* text-align: center; */
@@ -3896,7 +3935,7 @@ body {
 .works-section .container p {
     /* text-align: center; */
     margin: 0px 3em;
-    width: 65vw;
+    width: 65%;
 }
 
   .hex {
@@ -3914,10 +3953,19 @@ body {
         align-items: center;
         justify-items: center;
         margin: 1em;
+        width: 50% !important;
     }
 }
 
 @media (max-width: 600px) { /* <- 2-1  hexagons per row */
+    #google, #booking {
+        display: none;
+    }
+
+    .img-restaurant img {
+        max-height: 25em;
+    }
+
     #properties-intro{
      position: relative;
      left: 20%;   
@@ -3956,7 +4004,7 @@ body {
         margin: 10px 0px;
         max-width: 300px;
         align-content: flex-start;
-        min-width: 80vw !important;
+        /* min-width: 80vw !important; */
     }
     #hexGrid{   
         display: none;
@@ -4097,7 +4145,8 @@ body {
 }
 
 .img-restaurant img {
-    min-width: 100%;
+    /* min-width: 100%; */
+    max-width: 60em;
     padding-top: 0% !important;
     margin-top: 2em !important
 }

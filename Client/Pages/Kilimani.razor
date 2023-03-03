@@ -9,8 +9,6 @@
         <div class="hexIn">
           <a class="hexLink" href="#">
             <img src="assets/img/kilimani/kilimani10.jpg" />
-            <h1>Kilimani 1</h1>
-            <p>Some sample text about the article this hexagon leads to</p>
           </a>
         </div>
       </li>
@@ -18,8 +16,6 @@
         <div class="hexIn">
           <a class="hexLink" href="#">
             <img src="assets/img/kilimani/kilimani2.jpg" />
-            <h1>Kilimani 2</h1>
-            <p>Some sample text about the article this hexagon leads to</p>
           </a>
         </div>
       </li>
@@ -27,8 +23,6 @@
         <div class="hexIn">
           <a class="hexLink" href="#">
             <img src="assets/img/kilimani/kilimani3.jpg" />
-            <h1>Kilimani 3</h1>
-            <p>Some sample text about the article this hexagon leads to</p>
           </a>
         </div>
       </li>
@@ -36,8 +30,6 @@
         <div class="hexIn">
           <a class="hexLink" href="#">
             <img src="assets/img/kilimani/kilimani4.jpg" />
-            <h1>Kilimani 4</h1>
-            <p>Some sample text about the article this hexagon leads to</p>
           </a>
         </div>
       </li>
@@ -45,8 +37,6 @@
         <div class="hexIn">
           <a class="hexLink" href="#">
             <img src="assets/img/kilimani/kilimani5.jpg" />
-            <h1>Kilimani 5</h1>
-            <p>Some sample text about the article this hexagon leads to</p>
           </a>
         </div>
       </li>
@@ -54,8 +44,6 @@
         <div class="hexIn">
           <a class="hexLink" href="#">
             <img src="assets/img/kilimani/kilimani6.jpg" />
-            <h1>Kilimani 6</h1>
-            <p>Some sample text about the article this hexagon leads to</p>
           </a>
         </div>
       </li>
@@ -63,8 +51,6 @@
         <div class="hexIn">
           <a class="hexLink" href="#">
             <img src="assets/img/kilimani/kilimani7.jpg" />
-            <h1>Kilimani 7</h1>
-            <p>Some sample text about the article this hexagon leads to</p>
           </a>
         </div>
       </li>
@@ -72,8 +58,6 @@
         <div class="hexIn">
           <a class="hexLink" href="#">
             <img src="assets/img/kilimani/kilimani8.jpg" />
-            <h1>Kilimani 8</h1>
-            <p>Some sample text about the article this hexagon leads to</p>
           </a>
         </div>
       </li>
@@ -81,94 +65,36 @@
         <div class="hexIn">
           <a class="hexLink" href="#">
             <img src="assets/img/kilimani/kilimani9.jpg" />
-            <h1>Kilimani 8</h1>
-            <p>Some sample text about the article this hexagon leads to</p>
           </a>
         </div>
       </li>
-    
-    @* this will be for the smallest form factors *@
     </ul>
-        <ul id="regularGrid">
-      <li>
+    <ul id="regularGrid">
+      <li data-aos="fade-up">
           <img src="assets/img/kilimani/kilimani10.jpg" />
-          <h5>Kilimani District apt photo 1</h5>
       </li>
-      <li>
+      <li data-aos="fade-down">
           <img src="assets/img/kilimani/kilimani2.jpg" />
-          <h5>Kilimani District apt photo 2</h5>
       </li>
-      <li>
+      <li data-aos="fade-right">
           <img src="assets/img/kilimani/kilimani3.jpg" />
-          <h5>Kilimani District apt photo 3</h5>
       </li>
-      <li>
+      <li data-aos="fade-left">
           <img src="assets/img/kilimani/kilimani4.jpg" />
-          <h5>Kilimani District apt photo 4</h5>
       </li>
-      <li>
+      <li data-aos="flip-up">
           <img src="assets/img/kilimani/kilimani5.jpg" />
-          <h5>Kilimani District apt photo 5</h5>
       </li>
-      <li>
+      <li data-aos="flip-down">
           <img src="assets/img/kilimani/kilimani6.jpg" />
-          <h5>Kilimani District apt photo 6</h5>
       </li>
-      <li>
+      <li data-aos="flip-right">
           <img src="assets/img/kilimani/kilimani7.jpg" />
-          <h5>Kilimani District apt photo 7</h5>
       </li>
-      <li>
+      <li data-aos="flip-left">
           <img src="assets/img/kilimani/kilimani8.jpg" />
-          <h5>Kilimani District apt photo 8</h5>
       </li>
-      <li>
+      <li data-aos="fade-in">
           <img src="assets/img/kilimani/kilimani9.jpg" />
-          <h5>Kilimani District apt photo 10</h5>
       </li>
     </ul>
-@* @code {
-
-    DateTime CurrentDate = new DateTime(2020, 2, 14);
-    List<AppointmentData> DataSource = new List<AppointmentData>
-    {
-        new AppointmentData { Id = 1, Subject = "Paris", StartTime = new DateTime(2020, 2, 13, 10, 0, 0) , EndTime = new DateTime(2020, 2, 13, 12, 0, 0) },
-        new AppointmentData { Id = 2, Subject = "Germany", StartTime = new DateTime(2020, 2, 15, 10, 0, 0) , EndTime = new DateTime(2020, 2, 15, 12, 0, 0) }
-    };
-    public class AppointmentData
-    {
-        public int Id { get; set; }
-        public string Subject { get; set; }
-        public string Location { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public string Description { get; set; }
-        public bool IsAllDay { get; set; }
-        public string RecurrenceRule { get; set; }
-        public string RecurrenceException { get; set; }
-        public Nullable<int> RecurrenceID { get; set; }
-    }
-
-    ElementReference scrollElement;
-
-    DotNetObjectReference<Kilimani> selfReference;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            selfReference = DotNetObjectReference.Create(this);
-            var minInterval = 500; // Only notify every 500 ms
-            await JS.InvokeVoidAsync("onDivScroll",
-                scrollElement, minInterval);
-        }
-    }
-
-	    private int counter;
-
-    private void OnDivScroll()
-    {
-        counter++;
-    }
-	
-} *@
