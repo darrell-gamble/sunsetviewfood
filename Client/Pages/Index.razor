@@ -10,10 +10,9 @@
 	<section class="hero-section gap" style="background-image: url(assets/img/background-1.png);">
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="col-lg-6" data-aos="fade-up"  data-aos-delay="200" data-aos-duration="1000">
+				<div class="col-lg-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
 					<div class="restaurant">
-						<h1 style="border: 1px solid white !important;">Affordable,</h1>
-						<h1 class="comfy-rooms-style"><span>Comfy Rooms</span></h1> 
+						<h1 id="affordable" style="border: 1px solid white !important;">Affordable, Comfy Rooms</h1>
 						<p>From Westlake, Nairobi Kenya to Stone Town Zanzibar, Tanzania check out our affordable offerings.</p>
 					</div>
 				</div>
@@ -27,12 +26,12 @@
 	</section>
 	<!-- locations-section -->
 	<section style="min-height: 95vh" class="works-section" id="locations">
-		<div class="container">
+		<div class="container" id="properties-columns">
 			<div>
-				<div class="properties-h2"><h2>Properties</h2></div>
+				<div class="properties-h2" id="properties-header"><h2>Properties</h2></div>
 				<div id="properties-intro">Let us make your travels memorable by providing a lovely home away from home. </div>
 			</div>
-			<div class="row align-items-center">
+			<div id="properties-img" class="row align-items-center">
 				<div class="col-lg-4 col-md-6 col-sm-12" data-aos="flip-right" data-aos-delay="200" data-aos-duration="700">
 					<a href="#kilimani"><div class="work-card"> 	
 						<img alt="img" src="assets/img/kilimani/kilimani10.jpg">
@@ -63,7 +62,7 @@
 		<div class="container">
 			<div style="position: relative; right: 4em; margin-bottom: 20px; horizontal-align: center" class="properties-h2">
 				<div style="position: relative; left: 2%; margin-bottom: 20px; horizontal-align: center" class="properties-h2"><h2>Sunset View Hurumzi</h2></div>
-				<p style="text-align: center">Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
+				<p style="text-align: center">Let us pick you up from the airport.</p>
 			</div>
 			<div class="row align-items-center pre-gallery" style="display: flex; justify-content: center;">
 				<Sunset></Sunset>
@@ -71,24 +70,23 @@
 		</div>
 	</section>
 	<section class="works-section" id="kilimani" style="padding: 4em;">
-		<div class="container">
-			<div>
-				<div style="position: relative; right: 4em; margin-bottom: 20px; text-align: center;" class="properties-h2"><h2>Condo, Nairobi Kilimani</h2></div>
-			
-				<p style="position: relative; right: 4em; margin-bottom: 20px; horizontal-align: center; text-align: center;">Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
+		<div class="container" id="properties-container">
+			<div style="position: relative; right: 4em; margin-bottom: 20px; horizontal-align: center" class="properties-h2">
+				<div style="position: relative; left: 2%; margin-bottom: 20px; horizontal-align: center" class="properties-h2"><h2>Private Condo Nairobi</h2></div>
+				<p style="text-align: center">Free parking and fitness center.</p>
 			</div>
 			<div class="row align-items-center pre-gallery" style="display: flex; justify-content: center;">
 				<Kilimani></Kilimani>
 			</div>
 		</div>
-	</section>	
-	<section class="works-section" id="skyline">
-		<div class="container" style="padding: 4em;">
-			<div>
-				<div style="margin-bottom: 50px; text-align: center;" class="properties-h2"><h2>Private Rooms, Nairobi Kilimani</h2></div>
-				<p style="position: relative; right: 1em; margin-bottom: 20px; horizontal-align: center; text-align: center;">Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.  Let us lighten your load by providing transport from the airport, locale information and many other such services.</p>
+	</section>
+	<section class="works-section" id="sunset" style="padding: 4em;">
+		<div class="container">
+			<div style="position: relative; right: 4em; margin-bottom: 20px; horizontal-align: center" class="properties-h2">
+				<div style="position: relative; left: 2%; margin-bottom: 20px; horizontal-align: center" class="properties-h2"><h2>Private Rooms, Nairobi</h2></div>
+				<p style="text-align: center">Fitness center, rooftop pool and restaurant.</p>
 			</div>
-			<div class="row align-items-center pre-gallery" style="display: flex; justify-content: center; margin-left: 5em;">
+			<div class="row align-items-center pre-gallery" style="display: flex; justify-content: center;">
 				<Skyline></Skyline>
 			</div>
 		</div>

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
-svg .img-restaurant, svg .img-restaurant img  {
+.img-restaurant img, svg .img-restaurant  {
     width: 100%;
     height: 60vh;
     -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
@@ -382,22 +382,10 @@ header {
     margin: auto;
 }
 
-.work-card img, .img-restaurant img  {
-    width: 100%;
-    height: 60vh;
+.work-card img  {
     -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-    min-height: 200px;
-    min-width: 23vh;
-}
-
-.work-card img {
-    width: 100%;
-    height: 35vh;
-    -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-    min-height: 200px;
-    min-width: 23vh;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);  
+    max-height: 300px;  
 }
 
 
@@ -3660,7 +3648,7 @@ main .content-area {
 img {
     min-height: 200px;
     max-height: 700px;
-    min-width:  100px;
+    /* min-width:  100px; */
 }
 
 /* debugging hexagon styles */
@@ -3800,7 +3788,19 @@ body {
 }
 
 /*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
-@media (min-width:1201px) { /* <- 5-4  hexagons per row */
+@media (min-width:1201px) { 
+  .img-restaurant img {
+    min-width: 45em !important;
+    max-width: 45em !important;
+  }/* <- 5-4  hexagons per row */
+  h2 {
+    text-align: center;
+  }
+
+  div#properties-intro {
+    text-align: center;
+  }
+
   #hexGrid{
     padding-bottom: 4.4%;
     /* background-color: black; */
@@ -3818,20 +3818,36 @@ body {
 }
 
 @media (min-width:901px) and  (max-width: 1200px){ /* <- 4-3  hexagons per row */
+    #properties-img img {
+        max-width: 17em !important;  
+    }
+
+    .img-restaurant img {
+        min-width: 35em !important;
+        max-height: 30em !important;
+        position: relative;
+        right: 2em;
+    }
+
     #hexGrid{
         display: none;
-      }
+    }
     
-      #regularGrid {
-        display: grid;
-        grid-template-columns: 1fr;
-        width: 120vw;
-        margin-top: 7em;
-        position: relative;
-        bottom: 5em;    
-        background-color: teal; 
-        grid-template-columns:  1fr 1fr;        
-      }
+    #regularGrid {
+    display: grid;
+    /* grid-template-columns: 1fr; */
+    width: 120vw;
+    margin-top: 7em;
+    position: relative;
+    bottom: 5em;    
+    /* background-color: teal;  */
+    grid-template-columns:  1fr 1fr;        
+    }
+
+    #regularGrid img {
+        max-width: 23em;
+    }
+
   .hex {
     width: 25%; /* = 100 / 4 */
   }
@@ -3882,47 +3898,70 @@ body {
 }
 
 @media  (min-width:601px) and (max-width: 900px) { /* <- 3-2  hexagons per row */
+    
+    #properties-header {
+        font-size: 22px;
+        text-align: center;
+        position: relative;
+        left: .5em;
+    }
+
+    
+    #properties-intro {
+        position: relative;
+        left: 10%;   
+    }
+
+    div.properties-h2 {
+        position: relative;
+        left: 10%;   
+    }
+
+    ul#regularGrid > li > img {
+        width: 50em;
+    }
+    
+    #properties-columns {
+        margin-left: 6.5em !important;    
+    }
+    #affordable {
+        text-align: center !important;
+    }
+    .works-section .container {
+        padding-left: 0em !important;
+    }
+
+    body {
+        overflow-x: hidden !important;
+    }
+    
+    .works-section .container {
+        padding-left: 0em !important;
+    }
+
   #hexGrid{
     display: none;
   }
 
+  #affordable {
+    text-align: center !important;
+  }
+  
   #regularGrid {
     display: grid;
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
+    width: 120vw;
     margin-top: 7em;
     position: relative;
-    bottom: 5em;      
-    /* background-color: grey; */
-    position: relative;
-    left: 8%;
-    width: 100%;
-  }
+    bottom: 5em;    
+    /* background-color: teal;  */
+    grid-template-columns:  1fr 1fr;        
+    }
 
-  .properties-h2 {
-    color: red;
+  #regularGrid img { 
+    max-width: 15em;
+    /* border: 1em; */
   }
-
-  #google, #booking {
-    display: none;
-  }
-
-  .work-section {
-    display: grid;
-    grid-template-columns: 1fr;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    /* position: relative;
-    left: 2em; */
-  }
-
-  #regularGrid img {
-    width: 100%;
-    min-width: 25em;
-    min-height: 20em;
-  }
-
-  
 
   .works-section .container {
     /* text-align: center; */
@@ -3935,11 +3974,11 @@ body {
 .works-section .container p {
     /* text-align: center; */
     margin: 0px 3em;
-    width: 65%;
+    width: 65vw;
 }
 
   .hex {
-    width: 33.333%; = 100 / 3
+    width: 33.333%;
   }
   .hex:nth-child(5n+4){ /* first hexagon of even rows */
     margin-left:16.666%;  /* = width of .hex / 2  to indent even rows */
@@ -3953,11 +3992,60 @@ body {
         align-items: center;
         justify-items: center;
         margin: 1em;
-        width: 50% !important;
     }
 }
 
 @media (max-width: 600px) { /* <- 2-1  hexagons per row */
+    #properties-columns {
+        margin-left: 3em !important;    
+    }
+    #affordable {
+        text-align: center !important;
+    }
+    .works-section .container {
+        padding-left: 0em !important;
+    }
+
+    body {
+        overflow-x: hidden !important;
+    }
+
+    #private-rooms-nairobi {
+        position: relative;
+        left: 2em;
+    }
+
+    #skyline-p {
+        position: relative;
+        left: 2em !important;
+    }
+    #hexGrid {
+        display: none;
+    }
+    .img-restaurant img {
+        position: relative;
+        left: 1.5em;
+    }
+
+    #app > section.hero-section.gap > div > div > div.col-lg-6.aos-init.aos-animate > div > p {
+        text-align: center;
+        position: relative;
+        left: 3.5em;
+    }
+
+    #regularGrid > li > img {
+        max-height: 20em;
+        width: 300px;
+        background-color: grey;
+    }
+
+    #properties-header {
+        font-size: 22px;
+        text-align: center;
+        position: relative;
+        left: 1em;
+    }
+
     #google, #booking {
         display: none;
     }
@@ -3966,7 +4054,7 @@ body {
         max-height: 25em;
     }
 
-    #properties-intro{
+    #properties-intro {
      position: relative;
      left: 20%;   
     }
@@ -3994,7 +4082,7 @@ body {
 
     .restaurant h1 {
         margin-left: .75em;
-        border: 1px solid white;
+        /* border: 1px solid white; */
     }
     .restaurant p {
         width: 60% !important;
@@ -4017,7 +4105,7 @@ body {
         margin-top: 7em;
         position: relative;
         bottom: 5em;     
-        /* background-color: dark-blue;    */
+        background-color: dark-blue;   
     }
 
     ul#regularGrid li {
@@ -4025,6 +4113,18 @@ body {
         align-items: center;
         justify-items: center;
         margin: 1em;
+    }
+
+    #regularGrid > li:nth-child(1) > img {
+        width: 25em !important;
+    }
+
+    #properties-container > div.properties-h2 > div > h2 {
+
+    }
+
+    ul#regularGrid img {
+        width: 25em !important;
     }
 
 
@@ -4045,6 +4145,13 @@ body {
 
   div.properties-h2 h2{
     font-size: 22px;
+    position: relative;
+    left: 1em;
+  }
+
+  div.properties-h2 p {
+    position: relative;
+    left: 1.7em;
   }
 
   div.works-section .container p, div.section-container p {
@@ -4145,8 +4252,7 @@ body {
 }
 
 .img-restaurant img {
-    /* min-width: 100%; */
-    max-width: 60em;
+    min-width: 100%;
     padding-top: 0% !important;
     margin-top: 2em !important
 }
@@ -4175,3 +4281,27 @@ body {
   .show {
     display: block;
   }
+
+  #affordable, .restaurant img, .img-restaurant.aos-init.aos-animate {
+    display: relative !important; 
+    width: 90% !important;
+    margin-bottom: 1em;
+
+}
+
+
+h1#affordable::backdrop, 
+h1#affordable::after, 
+h1#affordable::backdrop, 
+h1#affordable::first-line, 
+h1#affordable:active, 
+h1#affordable:focus, 
+h1#affordable:fullscreen {
+    border: none !important;
+
+} 
+
+#properties-img img {
+    max-width: 20em;
+
+}
