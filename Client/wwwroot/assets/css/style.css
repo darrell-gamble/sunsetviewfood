@@ -3646,7 +3646,7 @@ main .content-area {
 }
 
 img {
-    min-height: 200px;
+    min-height: 300px;
     max-height: 700px;
     /* min-width:  100px; */
 }
