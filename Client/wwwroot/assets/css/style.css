@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
-.img-restaurant img, svg .img-restaurant  {
+.img-room img, svg .img-room  {
     width: 100%;
     height: 60vh;
     -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
@@ -9,7 +9,7 @@
     min-width: 23vh;
 }
 
-.img-restaurant {
+.img-room {
     min-width: 15vw !important;
     border: 1px solid white;
 }
@@ -268,7 +268,7 @@ header {
     background-position: top;
     background-size: auto;
 }
-.img-restaurant{
+.img-room{
     position: relative;
     height: 100%;
     width: 100%;
@@ -3789,7 +3789,7 @@ body {
 
 /*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
 @media (min-width:1201px) { 
-  .img-restaurant img {
+  .img-room img {
     /* min-width: 45em !important; */
     max-width: 45em !important;
   }/* <- 5-4  hexagons per row */
@@ -3812,7 +3812,7 @@ body {
   .hex:nth-child(9n+6){ /* first hexagon of even rows */
     margin-left:10%;  /* = width of .hex / 2  to indent even rows */
   }
-  .img-restaurant{
+  .img-room{
     width: 40vw !important;
   }
 }
@@ -3822,7 +3822,7 @@ body {
         max-width: 17em !important;  
     }
 
-    .img-restaurant img {
+    .img-room img {
         min-width: 35em !important;
         max-height: 30em !important;
         position: relative;
@@ -3862,7 +3862,7 @@ body {
         margin: 1em;
     }
 
-    .img-restaurant {
+    .img-room {
         /* border: 10px solid orange !important; */
         margin: 2em;
         /* max-height: 100px; */
@@ -4022,7 +4022,7 @@ body {
     #hexGrid {
         display: none;
     }
-    .img-restaurant img {
+    .img-room img {
         position: relative;
         left: 1.5em;
     }
@@ -4050,7 +4050,7 @@ body {
         display: none;
     }
 
-    .img-restaurant img {
+    .img-room img {
         max-height: 25em;
     }
 
@@ -4088,7 +4088,7 @@ body {
         width: 60% !important;
         margin-left: 2.3em !important;
     }
-    img, svg .img-restaurant, .work-card {
+    img, svg .img-room, .work-card {
         margin: 10px 0px;
         max-width: 300px;
         align-content: flex-start;
@@ -4253,7 +4253,7 @@ body {
     top: -.3em;
 }
 
-.img-restaurant img {
+.img-room img {
     min-width: 100%;
     padding-top: 0% !important;
     margin-top: 2em !important
@@ -4284,7 +4284,7 @@ body {
     display: block;
   }
 
-  #affordable, .restaurant img, .img-restaurant.aos-init.aos-animate {
+  #affordable, .restaurant img, .img-room.aos-init.aos-animate {
     display: relative !important; 
     width: 90% !important;
     margin-bottom: 1em;

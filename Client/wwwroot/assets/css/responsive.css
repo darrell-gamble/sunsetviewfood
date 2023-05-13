@@ -61,7 +61,7 @@
     .error-page form input[type="text"]{
         width: 60%;
     }
-    .img-restaurant img,.about-text h2,.img-blog-full img,.photo-blog img{
+    .img-room img,.about-text h2,.img-blog-full img,.photo-blog img{
         width: 100%;
     }
     .wilmington{
@@ -695,7 +695,7 @@
     .blog-content .name-dedails{
         padding: 20px 0;
     }
-    .img-restaurant img{
+    .img-room img{
         padding-top: 40px;
     }
     .count-time{
@@ -1150,10 +1150,10 @@
         left: 17%;
         top: 3%;
     }
-    .img-restaurant .wilmington img{
+    .img-room .wilmington img{
         padding-top: 0;
     }
-    .img-restaurant img {
+    .img-room img {
         padding-top: 100px;
     }
     .wilmington {
