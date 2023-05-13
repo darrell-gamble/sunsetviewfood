@@ -10,7 +10,7 @@
 }
 
 .img-restaurant {
-    min-width: 30vw !important;
+    min-width: 15vw !important;
     border: 1px solid white;
 }
 
@@ -4308,15 +4308,3 @@ h1#affordable:fullscreen {
 
 }
 
-/* h1#affordable:focus-visible, *:focus-visible  {
-    border: 0 !important;
-  } */
-
-  @supports not selector(:focus-visible) {
-    h1#affordable.with-fallback:focus {
-      /* Fallback for browsers without :focus-visible support */
-      border: 0;
-      outline: 3px solid deepskyblue;
-      outline-offset: 3px;
-    }
-  }
