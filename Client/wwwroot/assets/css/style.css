@@ -3788,9 +3788,9 @@ body {
 }
 
 /*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
-@media (min-width:1201px) { 
+@media (min-width:1501px) { 
   .img-room img {
-    /* min-width: 45em !important; */
+    min-width: 45em !important;
     max-width: 45em !important;
   }/* <- 5-4  hexagons per row */
   h2 {
@@ -3817,7 +3817,7 @@ body {
   }
 }
 
-@media (min-width:901px) and  (max-width: 1200px){ /* <- 4-3  hexagons per row */
+@media (min-width:901px) and  (max-width: 1500px){ /* <- 4-3  hexagons per row */
     #properties-img img {
         max-width: 17em !important;  
     }
